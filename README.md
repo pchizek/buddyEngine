@@ -2,8 +2,8 @@
 A C++ based, 2D game engine.
 
 ## Acknowledgements
-- <b>Uses [SFML (Simple Fast Multimedia Library)](https://github.com/SFML/SFML) by Laurent Gomilla et. al</b>
-- <b>Uses [tinyXML-2](https://github.com/leethomason/tinyxml2) by Lee Thomason</b>
+- <b>Uses [SFML (Simple Fast Multimedia Library)](https://github.com/SFML/SFML) by Laurent Gomilla et al.</b>
+- <b>Uses [tinyXML-2](https://github.com/leethomason/tinyxml2) by Lee Thomason.</b>
   
 ## Install
 ### Visual Studio 16 2019 + CMake GUI 
