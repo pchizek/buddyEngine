@@ -21,6 +21,7 @@
 int renderBlocks();
 //int renderStdObjs();
 //int renderAll();
+extern sf::RenderWindow window;
 
 /* A basic graphical object */
 class object {
