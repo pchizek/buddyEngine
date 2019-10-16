@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<level name="testLevel">
+
+  <assets>    
+    
+      <blockset>
+      <setNum>0</setNum>
+      <file>testSet.png</file>
+      <numBlocks>4</numBlocks>
+    </blockset>
+  
+  </assets>
+  
+  <environment>
+    <block>
+      <set>0</set>
+      <select>0</select>
+      <world>[2,2]</world>
+    </block>
+  
+    <block>
+      <set>0</set>
+      <select>3</select>
+      <world>[1,5]</world>
+    </block>
+
+    <block>
+      <set>0</set>
+      <select>2</select>
+      <world>[1,2]</world>
+    </block>
+  </environment>
+
+</level>
+
