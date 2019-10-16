@@ -13,8 +13,9 @@
 #include <SFML/Window.hpp>
 
 struct objects levelObjects;
-extern sf::RenderWindow window;
+
 int cameraCoords[2] = {0,0};
+//sf::RenderWindow window;
 
 /* Initialize threading */
 
