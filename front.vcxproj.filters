@@ -25,6 +25,12 @@
     <Filter Include="Source Files\data">
       <UniqueIdentifier>{11a93202-8f15-445d-9971-a6eb006daf1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\control">
+      <UniqueIdentifier>{c0edbed5-679f-4cca-a08a-b21567589c1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\control">
+      <UniqueIdentifier>{e7e218ff-ec8d-46d1-a1e2-e927a09417d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +48,9 @@
     <ClCompile Include="managers\objectManager2d.cpp">
       <Filter>Source Files\object</Filter>
     </ClCompile>
+    <ClCompile Include="controls.cpp">
+      <Filter>Source Files\control</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="behavior\resource.h">
@@ -58,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="loader\tinyxml2.h">
       <Filter>Header Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="controls.h">
+      <Filter>Header Files\control</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

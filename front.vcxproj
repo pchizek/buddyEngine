@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="behavior\threadManager.cpp" />
+    <ClCompile Include="controls.cpp" />
     <ClCompile Include="loader\loader.cpp" />
     <ClCompile Include="loader\tinyxml2.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="behavior\resource.h" />
     <ClInclude Include="behavior\threadManager.h" />
+    <ClInclude Include="controls.h" />
     <ClInclude Include="loader\loader.h" />
     <ClInclude Include="loader\tinyxml2.h" />
     <ClInclude Include="managers\objectManager2d.h" />

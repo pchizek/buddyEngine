@@ -20,7 +20,7 @@ using namespace std;
 threadGroup::threadGroup(void) {
 	// Nothing here?
 
-	cout << "Group formed\n";
+	//cout << "Group formed\n";
 }
 
 

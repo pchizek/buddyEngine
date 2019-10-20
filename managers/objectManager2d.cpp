@@ -26,7 +26,7 @@ int renderBlocks() {
 	//extern struct objects levelObjects;
 
 	/* Render all blocks */
-	block* nextBlock;
+	block* nextBlock; 
 
 	nextBlock = levelObjects.firstBlock;
 
