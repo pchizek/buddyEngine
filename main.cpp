@@ -23,30 +23,22 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "managers/objectManager2d.h"
+#include "managers/objManager2d.h"
 #include "loader/loader.h"
 #include "controls.h"
 
 using namespace sf;
 using namespace std;
+using namespace engine;
 
-// TODO: Make this not global, as issues arise in Debug configuration and it is bad practice
-RenderWindow window(VideoMode(800, 600), "SFML works!");
+int main(){
 
-//int playerState[4];
-
-/* Get struct for all objects to be rendered in the level */
-int main()
-{
-	/* Bind keys */
-
-	/* Create Window */
+	/* Create a render window TODO: Add */
+	RenderWindow window(VideoMode(800, 600), "SFML works!");
 
 	/* Load File */
 	loadLevel("resources/levels/testLevel.xml");
-
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
+	extern int cameraCoords[2];
 
 	/* Main event loop */
 	while (window.isOpen())
@@ -76,7 +68,7 @@ int main()
 		/* Render objects */
 
 		window.clear();
-		int rc = renderBlocks();
+		engine::renderAll(&window);
 	
 		window.display();
 
