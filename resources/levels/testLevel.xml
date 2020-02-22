@@ -3,33 +3,46 @@
 <level name="testLevel">
 
   <assets>    
-    
-      <blockset>
-      <setNum>0</setNum>
+
+    <!-- Blockset -->
+    <asset alias="testSet">
       <file>testSet.png</file>
-      <numBlocks>4</numBlocks>
-    </blockset>
-  
+    </asset>
+
+    <!-- Non-Blockset Object -->
+    <asset alias="testObj">
+      <file>testObj.png</file>
+    </asset>
+    
   </assets>
   
   <environment>
-    <block>
-      <set>0</set>
-      <select>0</select>
-      <world>[2,2]</world>
-    </block>
-  
-    <block>
-      <set>0</set>
-      <select>3</select>
-      <world>[1,5]</world>
-    </block>
 
-    <block>
-      <set>0</set>
-      <select>2</select>
-      <world>[1,2]</world>
-    </block>
+    <!-- A non-block object -->
+    <object>
+      <coords>[248,135]</coords>
+      <layer>0</layer>
+      <texture>testObj</texture>
+    </object>
+
+    <!-- A non-block object, subset -->
+    <object>
+      <grid>[1,1]</grid>
+      <layer>1</layer>
+      <texture>testObj</texture>
+      <rect>[0,0,70,48]</rect>
+    </object>
+ 
+    <!-- A simple block object -->
+    <object>
+      <grid>[2,2]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>0</blockSelect>
+    </object>
+      
+    <!-- A dynamic object -->
+
   </environment>
 
 </level>

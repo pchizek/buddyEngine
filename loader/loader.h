@@ -17,23 +17,21 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-#include "..//managers/objectManager2d.h"
+#include "..//managers/objManager2d.h"
 
 using namespace std;
 using namespace tinyxml2;
+using namespace engine;
 
-class node {
+void parse(string inputString, int* outputInt);
+void parse(string inputString, int outputArr[], int outputArrSize);
 
-public:
-	string data;
-	node* next;
+void loadAsset(XMLElement* assetElement);
+void loadObject(XMLElement* objectElement);
 
-};
+void loadAssets(XMLDocument* levelDoc);
+void loadEnvironment(XMLDocument* levelDoc);
 
-int extractElementSet(node* firstRef, XMLElement* parentElement, const char elementName[]);
-
-int parse(string inputString, int tupleArray[2]);
-
-int loadLevel(const char filename[]);
+void loadLevel(const char filename[]);
 
 #endif

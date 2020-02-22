@@ -45,11 +45,11 @@
     <ClCompile Include="loader\tinyxml2.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
-    <ClCompile Include="managers\objectManager2d.cpp">
-      <Filter>Source Files\object</Filter>
-    </ClCompile>
     <ClCompile Include="controls.cpp">
       <Filter>Source Files\control</Filter>
+    </ClCompile>
+    <ClCompile Include="managers\objManager2d.cpp">
+      <Filter>Source Files\object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,9 +59,6 @@
     <ClInclude Include="behavior\threadManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="managers\objectManager2d.h">
-      <Filter>Header Files\object</Filter>
-    </ClInclude>
     <ClInclude Include="loader\loader.h">
       <Filter>Header Files\data</Filter>
     </ClInclude>
@@ -70,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="controls.h">
       <Filter>Header Files\control</Filter>
+    </ClInclude>
+    <ClInclude Include="managers\objManager2d.h">
+      <Filter>Header Files\object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
