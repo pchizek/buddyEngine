@@ -15,11 +15,15 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <unordered_map>
+#include "..//loader/xmlTools.h"
+#include "..//loader/tinyxml2.h"
+#include <array>
 
 #define BLOCK_SIZE 32
 #define MAX_LAYERS 5
 
 using namespace std;
+using namespace tinyxml2;
 
 /* Get access to window */
 extern sf::RenderWindow window;
@@ -30,37 +34,62 @@ namespace engine {
 	/* A graphical asset */
 	void importTexture(string textureFile, string textureKey);
 
+	/* Structs for script specific info */
+	typedef struct {
+
+		bool active;
+
+		uint16_t nodeCounter;
+		uint8_t numNodes, currentNode;
+		vector<array<int, 3>> motionNodes;
+		int scriptOffset[2];
+
+	} motionInfoCache;
+
+	typedef struct {
+
+		bool active;
+
+		// Current frame counter
+		uint16_t frameCounter;
+		// Frames 
+		uint8_t numFrames, currentFrame;
+		vector<array<int,5>> animFrames;
+
+	} animInfoCache;
+
 	/* An object that exists in the world */
 	class object {
 
 	public:
 
 		object(	int worldLoc[2],
-				int objLayer,
+				uint8_t objLayer,
 				sf::Texture* newTexture = NULL,
 				int spriteRect[4] = NULL);
 
 		void setTexture(sf::Texture* newTexture);
-		//void setScript(void* script, ...); 
+		void setScript(XMLElement* scriptElement);
 
 		void draw(sf::RenderWindow* window);
 
 		int worldCoords[2];
 
+		motionInfoCache motionInfo;
+		animInfoCache animInfo;
+
 		// Pointer to next object in linked list
-		object* nextObject;
-		object* prevObject;
-		uint8_t layer;
+		object* nextObject{ NULL };
+		object* prevObject{ NULL };
+		uint8_t layer{ 0 };
 
 	private:
 
 		sf::Sprite objectSprite;
-		void *objectScript;
 
 	};
 
 	/* Data structure for all objects in the level */
-	//static int numObjects;
 	extern object* firstObject;
 	extern object* lastObject;
 

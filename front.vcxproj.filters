@@ -51,6 +51,9 @@
     <ClCompile Include="managers\objManager2d.cpp">
       <Filter>Source Files\object</Filter>
     </ClCompile>
+    <ClCompile Include="loader\xmlTools.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="behavior\resource.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="managers\objManager2d.h">
       <Filter>Header Files\object</Filter>
+    </ClInclude>
+    <ClInclude Include="loader\xmlTools.h">
+      <Filter>Header Files\data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

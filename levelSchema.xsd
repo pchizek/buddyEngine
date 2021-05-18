@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://tempuri.org/XMLSchema.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:element name="type" type="xs:string" />
+  <xs:element name="filepath" type="xs:string"/>
+  
+  
+  
+  <xs:element name="level">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- Assets -->
+        <xs:element name="assets">
+          <xs:complexType>
+           <xs:sequence>
+           
+             <xs:element name ="asset" maxOccurs="unbounded">
+                <xs:complexType>
+                  
+                  <xs:all>
+                    <xs:element ref = "type"/>
+                    <xs:element ref = "filepath"/>
+                  </xs:all>
+               
+                  <xs:attribute name = "alias" type="xs:string" use="required"/>
+               </xs:complexType>
+             </xs:element>
+             
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Environment -->
+        <xs:element name="environment">
+          <xs:complexType>
+            <xs:complexContent>
+              <xs:
+            </xs:complexContent>
+
+            <xs:sequence>
+
+              
+              
+            </xs:sequence>
+            
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:sequence>
+
+
+      <xs:attribute name="levelName" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

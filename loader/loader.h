@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string.h>
 #include "tinyxml2.h"
+#include "xmlTools.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -22,9 +23,6 @@
 using namespace std;
 using namespace tinyxml2;
 using namespace engine;
-
-void parse(string inputString, int* outputInt);
-void parse(string inputString, int outputArr[], int outputArrSize);
 
 void loadAsset(XMLElement* assetElement);
 void loadObject(XMLElement* objectElement);

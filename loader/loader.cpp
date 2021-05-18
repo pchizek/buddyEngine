@@ -13,6 +13,7 @@
 #include "loader.h"
 #include <unordered_map>
 #include "..//managers/objManager2d.h"
+#include "xmlTools.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -22,65 +23,6 @@
 using namespace std;
 using namespace tinyxml2;
 using namespace engine;
-
-/* Parser for extracting values from  xml documents */
-#pragma region parsing
-/* Parses a string to extract various integer and array values
- *
- * Arguments:
- * inputString: an object of type std::string that values will be extracted from
- *
- * (Overloaded)
- * tupleArray: an array of 2 integers (such as 2D coordinates)
- * num: a single integer
- *
- *
- * Returns: 0 on success, -1 on error
- */
-
-void parse(string inputString, int *outputInt) {
-
-	*outputInt = stoi(inputString);
-
-}
-
-void parse(string inputString, int outputArr[], int outputArrSize) {
-
-	size_t len = inputString.length();
-
-	if ((inputString[0] == '[') && (inputString[len - 1] == ']')) {
-
-		len = inputString.length();
-
-		size_t thisComma = 0, nextComma;
-
-		for (int i = 0; i < outputArrSize; i++) {
-
-			if (thisComma == string::npos) {
-				exception("Bad Array: Invalid length");
-			}
-
-			nextComma = inputString.find(',', thisComma+1);
-			
-			if (nextComma != string::npos) {
-				outputArr[i] = stoi(inputString.substr(thisComma+1, (nextComma - thisComma)));
-			}
-			else {
-				outputArr[i] = stoi(inputString.substr(thisComma+1, (len - 2 - thisComma)));
-			}
-
-			thisComma = nextComma;
-
-		}
-
-	}
-	else {
-		exception("Bad Array: Syntax");
-	}
-
-}
-
-#pragma endregion
 
 /* Loader for individual assets, objects */
 #pragma region load_element
@@ -112,8 +54,6 @@ void loadAsset(XMLElement* assetElement) {
 void loadObject(XMLElement* objectElement) {
 
 	// Access the unordered map of textures
-	
-
 	XMLElement* objectChildElement;
 
 	/* World location under <grid> or <coords> */
@@ -178,7 +118,6 @@ void loadObject(XMLElement* objectElement) {
 		exception("Object: Invalid texture");
 	}
 
-
 	/* Block selection or rectangle */
 	int spriteRect[4];
 
@@ -197,7 +136,7 @@ void loadObject(XMLElement* objectElement) {
 		objectChildElement = objectElement->FirstChildElement("blockSelect");
 
 		// Extract from document
-		parse(objectChildElement->GetText(), &blockSelect);
+		parse(objectChildElement->GetText(), &blockSelect,3);
 
 		// Set texture rectangle
 		spriteRect[0] = 0;
@@ -219,6 +158,16 @@ void loadObject(XMLElement* objectElement) {
 	/* Construct object */
 	engine::object* newObject = new engine::object(worldLoc, objLayer, objectTexture, spriteRect);
 
+	/* 
+	 * Add scripts 
+	 * (these may or may not apply to a given object so they
+	 * have to be added to the object already constructed) 
+	 */
+	if (objectElement->FirstChildElement("script")) {
+		objectChildElement = objectElement->FirstChildElement("script");
+		newObject->setScript(objectChildElement);
+	}
+
 	/* Emplace object */
 	newObject->prevObject = engine::lastObject;
 	if (engine::firstObject == NULL) {
@@ -227,7 +176,7 @@ void loadObject(XMLElement* objectElement) {
 	else {
 		newObject->prevObject->nextObject = newObject;
 	}
-	newObject->prevObject = engine::lastObject;
+	//newObject->prevObject = engine::lastObject;
 
 	engine::lastObject = newObject;
 
@@ -245,7 +194,6 @@ void loadObject(XMLElement* objectElement) {
  *
  * Returns: 0 on success, error codes
  */
-
 
 void loadAssets(XMLDocument* levelDoc) {
 

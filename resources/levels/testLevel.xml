@@ -42,7 +42,44 @@
     </object>
       
     <!-- A dynamic object -->
-
+    <object>
+      <grid>[4,4]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>1</blockSelect>
+      <script type="move">
+        <node>[0,0,0]</node>
+        <node>[64,0,60]</node>
+        <node>[0,0,120]</node>
+      </script>
+    </object>
+    
+    <object>
+      <grid>[4,7]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>2</blockSelect>
+      <script type="move">
+        <node>[0,0,0]</node>
+        <node>[32,32,60]</node>
+        <node>[32,64,60]</node>
+        <node>[0,64,60]</node>
+        <node>[0,0,120]</node>
+      </script>
+    </object>
+  
+    <object>
+      <grid>[7,7]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <script type="animation">
+        <node>[0,0,32,32,10]</node>
+        <node>[32,0,32,32,60]</node>
+        <node>[64,0,32,32,40]</node>
+        <node>[32,0,32,32,40]</node>
+      </script>
+    </object>
+  
   </environment>
 
 </level>
