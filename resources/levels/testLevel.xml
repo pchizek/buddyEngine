@@ -20,7 +20,7 @@
 
     <!-- A non-block object -->
     <object>
-      <coords>[248,135]</coords>
+      <coords>[200,135]</coords>
       <layer>0</layer>
       <texture>testObj</texture>
     </object>
@@ -35,14 +35,52 @@
  
     <!-- A simple block object -->
     <object>
-      <grid>[2,2]</grid>
+      <grid>[0,0]</grid>
       <layer>3</layer>
       <texture>testSet</texture>
-      <blockSelect>0</blockSelect>
+      <blockSelect>1</blockSelect>
     </object>
       
     <!-- A dynamic object -->
+    <object>
+      <grid>[4,4]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>0</blockSelect>
+      <script type="move">
+        <node>[64,0,60]</node>
+        <node>[0,0,120]</node>
+      </script>
+    </object>
 
+    <object>
+      <grid>[4,7]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>2</blockSelect>
+      <script type="move">
+        <node>[32,32,60]</node>
+        <node>[32,64,60]</node>
+        <node>[0,64,60]</node>
+        <node>[0,0,120]</node>
+      </script>
+    </object>
+    
+    <!-- An animated object -->
+    <object>
+      <grid>[7,7]</grid>
+      <layer>3</layer>
+      <texture>testSet</texture>
+      <blockSelect>0</blockSelect>
+      <script type="animation">
+        <frame>[0,0,32,32,10]</frame>
+        <frame>[32,0,32,32,60]</frame>
+        <frame>[64,0,32,32,40]</frame>
+        <frame>[32,0,32,32,40]</frame>
+      </script>
+    </object>
+   
+  
   </environment>
 
 </level>

@@ -34,16 +34,23 @@ using namespace engine;
 int main(){
 
 	/* Create a render window TODO: Add */
-	RenderWindow window(VideoMode(800, 600), "SFML works!");
+	RenderWindow window(VideoMode(800, 600), "Test Window");
+
+	/* TODO: Package files into some sort of library */
+
+	/* Load program options */
 
 	/* Load File */
 	loadLevel("resources/levels/testLevel.xml");
 	extern int cameraCoords[2];
 
 	/* Main event loop */
+	// TODO: Gracefully exit after user closes window
 	while (window.isOpen())
 	{
 
+		// TODO: Make a better update procedure that isn't 
+		// locked to a specific frame rate
 		using clock = chrono::steady_clock;
 
 		clock::time_point nextTick = clock::now() + 17ms;
@@ -66,7 +73,6 @@ int main(){
 		cameraCoords[1] = playerState[1];
 
 		/* Render objects */
-
 		window.clear();
 		engine::renderAll(&window);
 	
