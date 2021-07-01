@@ -78,14 +78,17 @@ void parse(const char* inputChar, int outputArr[], int outputArrSize) {
 
 }
 
-void parse(const char* inputChar, array<int, 3> outputStdArr) {
+void parse(const char* inputChar, array<int, 3> &outputStdArr) {
 
 	int interArr[3];
 	parse(inputChar, interArr, 3);
-
+	
+	for (int i = 0; i < 3; i++) {
+		outputStdArr.at(i) = interArr[i];
+	}
 }
 
-void parse(const char* inputChar, array<int, 5> outputStdArr) {
+void parse(const char* inputChar, array<int, 5> &outputStdArr) {
 
 	int interArr[5];
 	parse(inputChar, interArr, 5);

@@ -119,7 +119,7 @@ void loadObject(XMLElement* objectElement) {
 	}
 
 	/* Block selection or rectangle */
-	int spriteRect[4];
+	int spriteRect[4] = {0,0,0,0};
 
 	if (objectElement->FirstChildElement("rect")) {
 
@@ -136,11 +136,11 @@ void loadObject(XMLElement* objectElement) {
 		objectChildElement = objectElement->FirstChildElement("blockSelect");
 
 		// Extract from document
-		parse(objectChildElement->GetText(), &blockSelect,3);
+		parse(objectChildElement->GetText(), &blockSelect);
 
 		// Set texture rectangle
-		spriteRect[0] = 0;
-		spriteRect[1] = (32 * blockSelect);
+		spriteRect[0] = (32 * blockSelect);
+		spriteRect[1] = 0;
 		spriteRect[2] = 32;
 		spriteRect[3] = 32;
 
@@ -151,12 +151,17 @@ void loadObject(XMLElement* objectElement) {
 		// Set texture rectangle
 		spriteRect[0] = 0;
 		spriteRect[1] = 0;
-		spriteRect[2] = 0;
-		spriteRect[3] = 0;
+		
+		// Get size of rectangle as full size of texture
+		sf::Vector2u fullSize = objectTexture->getSize(); // Dereferences null pointer but could null pointer ever get here?
+		spriteRect[2] = fullSize.x;
+		spriteRect[3] = fullSize.y;
 	}
 
+	sf::IntRect sRect(spriteRect[0], spriteRect[1], spriteRect[2], spriteRect[3]);
+
 	/* Construct object */
-	engine::object* newObject = new engine::object(worldLoc, objLayer, objectTexture, spriteRect);
+	engine::object* newObject = new engine::object(worldLoc, objLayer, objectTexture, &sRect);
 
 	/* 
 	 * Add scripts 

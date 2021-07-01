@@ -42,7 +42,9 @@ namespace engine {
 		uint16_t nodeCounter;
 		uint8_t numNodes, currentNode;
 		vector<array<int, 3>> motionNodes;
-		int scriptOffset[2];
+		float scriptOffset[2];
+		int dx, dy;
+		float dt;
 
 	} motionInfoCache;
 
@@ -65,8 +67,8 @@ namespace engine {
 
 		object(	int worldLoc[2],
 				uint8_t objLayer,
-				sf::Texture* newTexture = NULL,
-				int spriteRect[4] = NULL);
+				sf::Texture* newTexture,
+				sf::IntRect* spriteRect);
 
 		void setTexture(sf::Texture* newTexture);
 		void setScript(XMLElement* scriptElement);
