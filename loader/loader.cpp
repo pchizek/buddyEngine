@@ -12,8 +12,8 @@
 #include "tinyxml2.h"
 #include "loader.h"
 #include <unordered_map>
-#include "..//managers/objManager2d.h"
-#include "xmlTools.h"
+#include <objManager2d.h>
+#include <xmlTools.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>

@@ -15,8 +15,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include <unordered_map>
-#include "..//loader/xmlTools.h"
-#include "..//loader/tinyxml2.h"
+#include <xmlTools.h>
+#include <tinyxml2.h>
 #include <array>
 
 #define BLOCK_SIZE 32

@@ -13,12 +13,12 @@
 #include <iostream>
 #include <string.h>
 #include "tinyxml2.h"
-#include "xmlTools.h"
+#include <xmlTools.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-#include "..//managers/objManager2d.h"
+#include <objManager2d.h>
 
 using namespace std;
 using namespace tinyxml2;

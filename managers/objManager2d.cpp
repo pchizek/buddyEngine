@@ -7,9 +7,9 @@
  *
  */
 
-#include "objManager2d.h"
-#include "..//loader/xmlTools.h"
-#include "..//loader/tinyxml2.h"
+#include <objManager2d.h>
+#include <xmlTools.h>
+#include <tinyxml2.h>
 #include <array>
 
 #include <SFML/Graphics.hpp>

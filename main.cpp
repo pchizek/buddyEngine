@@ -23,8 +23,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "managers/objManager2d.h"
-#include "loader/loader.h"
+#include <objManager2d.h>
+#include <loader.h>
 #include "controls.h"
 
 using namespace sf;
@@ -33,10 +33,10 @@ using namespace engine;
 
 int main(){
 
-	/* Create a render window TODO: Add */
+	/* Create a render window TODO: make scalable, exit gracefully */
 	RenderWindow window(VideoMode(800, 600), "Test Window");
 
-	/* TODO: Package files into some sort of library */
+	/* TODO: Package game assets into some sort of library */
 
 	/* Load program options */
 
