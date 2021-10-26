@@ -78,6 +78,43 @@ void parse(const char* inputChar, int outputArr[], int outputArrSize) {
 
 }
 
+void parse(const char* inputChar, float outputArr[], int outputArrSize) {
+
+	string inputString(inputChar);
+	size_t len = inputString.length();
+
+	if ((inputString[0] == '[') && (inputString[len - 1] == ']')) {
+
+		len = inputString.length();
+
+		size_t thisComma = 0, nextComma;
+
+		for (int i = 0; i < outputArrSize; i++) {
+
+			if (thisComma == string::npos) {
+				exception("Bad Array: Invalid length");
+			}
+
+			nextComma = inputString.find(',', thisComma + 1);
+
+			if (nextComma != string::npos) {
+				outputArr[i] = stof(inputString.substr(thisComma + 1, (nextComma - thisComma)));
+			}
+			else {
+				outputArr[i] = stof(inputString.substr(thisComma + 1, (len - 2 - thisComma)));
+			}
+
+			thisComma = nextComma;
+
+		}
+
+	}
+	else {
+		exception("Bad Array: Syntax");
+	}
+
+}
+
 void parse(const char* inputChar, array<int, 3> &outputStdArr) {
 
 	int interArr[3];

@@ -22,10 +22,12 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+//#include <SFML/System.hpp>
 
 #include <objManager2d.h>
 #include <loader.h>
-#include "controls.h"
+#include <gameOptions.h>
+#include <controls.h>
 
 using namespace sf;
 using namespace std;
@@ -33,19 +35,24 @@ using namespace engine;
 
 int main(){
 
-	/* Create a render window TODO: make scalable, exit gracefully */
-	RenderWindow window(VideoMode(800, 600), "Test Window");
+	/* Create a render window, the view variable*/
+
+	// NOTE: SFML objects have to be passed into functions
+	// if they are global it messes with mutexes 
+	RenderWindow window(VideoMode(), string("Window"));
+	sf::View gameCamera;
+	
+	setControlMode(controlMode::flyingCamera);
+	setGameOptions(&window,&gameCamera);
 
 	/* TODO: Package game assets into some sort of library */
-
-	/* Load program options */
 
 	/* Load File */
 	loadLevel("resources/levels/testLevel.xml");
 	extern int cameraCoords[2];
 
+
 	/* Main event loop */
-	// TODO: Gracefully exit after user closes window
 	while (window.isOpen())
 	{
 
@@ -61,19 +68,23 @@ int main(){
 		{
 			if (event.type == Event::Closed) {
 				window.close();
+				return 0;
 			}
 
 		}
 
 		/* Controls */
-		controlInput();
-		resolveState();
+		controlInput(&gameCamera);
+		//resolveState();
 
-		cameraCoords[0] = playerState[0];
-		cameraCoords[1] = playerState[1];
-
-		/* Render objects */
+		/* Clear window for next draw */
 		window.clear();
+
+		/*Ensure window size is the same, or lock window size*/
+		window.setView(gameCamera);
+
+		/* If not, reset scale factor accordingly*/
+
 		engine::renderAll(&window);
 	
 		window.display();

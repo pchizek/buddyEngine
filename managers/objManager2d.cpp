@@ -15,6 +15,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#define FAUXWIDTH 320.0
+#define FAUXHEIGHT 180.0
+
 using namespace tinyxml2;
 using namespace engine;
 using namespace std;
@@ -22,27 +25,29 @@ using namespace std;
 int cameraCoords[2] = { 0,0 };
 
 namespace engine {
-
+	
 	object* firstObject;
 	object* lastObject;
-	unordered_map<string, sf::Texture> textureMap;
+	unordered_map<string, textureInfo> textureInfoMap;
 
 	/* Texture */
 #pragma region texture
 
-	void engine::importTexture(string textureFile, string textureKey) {
+	void engine::importTexture(string textureFile, string textureKey, sf::Vector2f scaleFactor) {
 
-		sf::Texture assetTexture;
+		textureInfo assetTextureInfo;
 
-		if (!assetTexture.loadFromFile(textureFile)) {
+		// Put in scale factor
+		assetTextureInfo.assetScaleFactor = scaleFactor;
+
+		// Import actual texture data
+		if (!assetTextureInfo.assetTexture.loadFromFile(textureFile)) {
 			// Error
-			//const char* errTextureFile = string("File not found: ").append(textureFile).c_str();
-			//exception(errTextureFile);
 			exception("File not found");
 		}
 		else {
 			// Copy into map
-			engine::textureMap.emplace(textureKey, assetTexture);
+			engine::textureInfoMap.emplace(textureKey, assetTextureInfo);
 		}
 
 	}
@@ -52,7 +57,7 @@ namespace engine {
 #pragma region object
 
 	/* Constructor */
-	object::object(int worldLoc[2], uint8_t objLayer, sf::Texture* newTexture, sf::IntRect *spriteRect) {
+	object::object(int worldLoc[2], uint8_t objLayer, textureInfo* newTexture, sf::IntRect *spriteRect) {
 
 		/* Set world location */
 		worldCoords[0] = worldLoc[0];
@@ -60,24 +65,37 @@ namespace engine {
 
 		/* Set sprite texture */
 		if (newTexture) {
-			objectSprite.setTexture(*newTexture);
+			objectSprite.setTexture(newTexture->assetTexture);
+			
 		}
 
 		/* Set texture rectangle/hitbox */
 		objectSprite.setTextureRect(*spriteRect);
-		//if (spriteRect[3]) {
-			
-		//}
+
+		objectTextureInfo = newTexture;
 
 		layer = objLayer;
-
-
 
 	}
 
 	/* Set Texture */
 	void object::setTexture(sf::Texture* newTexture) {
 		objectSprite.setTexture(*newTexture);
+	}
+
+	/* Set local scale factor*/
+	void object::setLocalScaleFactor(sf::Vector2f* scaleFactor) {
+		localScaleFactor.x = scaleFactor->x;
+		localScaleFactor.y = scaleFactor->y;
+	}
+
+	/* Set and update object scale factor*/
+	void object::setObjectScaleFactor() {
+		objectScaleFactor.x = objectTextureInfo->assetScaleFactor.x * 
+			localScaleFactor.x;
+		objectScaleFactor.y = objectTextureInfo->assetScaleFactor.y * 
+			localScaleFactor.y;
+		objectSprite.setScale(objectScaleFactor);
 	}
 
 	/* Set Script */
@@ -203,7 +221,6 @@ namespace engine {
 
 		}
 
-		
 		if (motionInfo.active) {
 
 			// If has reached the next node
@@ -235,7 +252,7 @@ namespace engine {
 				}
 			
 				motionInfo.dt = 1 / float(motionInfo.motionNodes.at(motionInfo.currentNode)[2]);
-				//motionInfo.currentNode++;
+
 			}
 			
 
@@ -248,7 +265,6 @@ namespace engine {
 				motionInfo.nodeCounter++;
 
 			}
-
 
 		}
 
@@ -283,5 +299,19 @@ namespace engine {
 		}
 
 	}
+	
+	/*
+	 * Set a new scale factor globally via the sf::View Class, while retaining position in the world
+	 */
+	void engine::setGlobalScaleFactor(sf::View* gameCamera, float fauxWidth, float fauxHeight, bool stayPosition) {
 
+		sf::Vector2f cameraCenter = gameCamera->getCenter();
+
+		gameCamera->reset(sf::FloatRect(0.0f, 0.0f, fauxWidth, fauxHeight));
+		
+		if (stayPosition) {
+			gameCamera->setCenter(cameraCenter);
+		}
+
+	}
 }

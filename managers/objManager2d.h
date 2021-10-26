@@ -26,13 +26,17 @@ using namespace std;
 using namespace tinyxml2;
 
 /* Get access to window */
-extern sf::RenderWindow window;
 
 /* Texture Assets */
 namespace engine {
 
 	/* A graphical asset */
-	void importTexture(string textureFile, string textureKey);
+	void importTexture(string textureFile, string textureKey, sf::Vector2f scaleFactor);
+
+	typedef struct {
+		sf::Texture assetTexture;
+		sf::Vector2f assetScaleFactor;
+	} textureInfo;
 
 	/* Structs for script specific info */
 	typedef struct {
@@ -65,17 +69,23 @@ namespace engine {
 
 	public:
 
+
 		object(	int worldLoc[2],
 				uint8_t objLayer,
-				sf::Texture* newTexture,
+				textureInfo* newTexture,
 				sf::IntRect* spriteRect);
 
 		void setTexture(sf::Texture* newTexture);
+		
 		void setScript(XMLElement* scriptElement);
 
 		void draw(sf::RenderWindow* window);
 
+		void setObjectScaleFactor();
+		void setLocalScaleFactor(sf::Vector2f* scaleFactor);
+
 		int worldCoords[2];
+
 
 		motionInfoCache motionInfo;
 		animInfoCache animInfo;
@@ -85,20 +95,28 @@ namespace engine {
 		object* prevObject{ NULL };
 		uint8_t layer{ 0 };
 
-	private:
-
 		sf::Sprite objectSprite;
+		textureInfo* objectTextureInfo;
+
+	private:
+		sf::Vector2f localScaleFactor;
+		sf::Vector2f objectScaleFactor;
+
 
 	};
+
 
 	/* Data structure for all objects in the level */
 	extern object* firstObject;
 	extern object* lastObject;
+	extern unordered_map<string, textureInfo> textureInfoMap;
 
+	void setGlobalScaleFactor(sf::View* gameCamera, float fauxWidth, float fauxHeight, bool stayPosition);
+	// void rescaleWorldForWindow()
 	void renderAll(sf::RenderWindow* window);
 
 	// Assets
-	extern unordered_map<string, sf::Texture> textureMap;
+	extern unordered_map<string, textureInfo> textureInfoMap;
 
 }
 #endif
