@@ -23,6 +23,7 @@ using namespace tinyxml2;
 void parse(const char* inputChar, int* outputInt);
 void parse(const char* inputChar, int outputArr[], int outputArrSize);
 void parse(const char* inputChar, float outputArr[], int outputArrSize);
+void parse(string inputString, vector<int>& outputVector);
 void parse(const char* inputChar, array<int,3> &outputStdArr);
 void parse(const char* inputChar, array<int,5> &outputStdArr);
 
