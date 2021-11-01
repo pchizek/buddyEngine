@@ -88,5 +88,11 @@
     <Xml Include="resources\levels\testLevel.xml">
       <Filter>Resource Files</Filter>
     </Xml>
+    <Xml Include="resources\ui\controlSchemes.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="resources\ui\ui.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

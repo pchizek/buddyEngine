@@ -184,6 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\levels\testLevel.xml" />
+    <Xml Include="resources\ui\controlSchemes.xml" />
+    <Xml Include="resources\ui\ui.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
