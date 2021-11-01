@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<scheme name="flyingCameraKeyboard">
+   
+  <mouseEnable>true</mouseEnable>
+  
+  <keybind>
+    <key>w</key>
+    <function>moveCamera</function>
+    <args>[1,-5]</args>
+  </keybind>
+
+  <keybind>
+    <key>s</key>
+    <function>moveCamera</function>
+    <args>[1,5]</args>
+  </keybind>
+
+  <keybind>
+    <key>a</key>
+    <function>moveCamera</function>
+    <args>[0,-5]</args>
+  </keybind>
+
+  <keybind>
+    <key>d</key>
+    <function>moveCamera</function>
+    <args>[0,5]</args>
+  </keybind>
+
+  <keybind>
+    <key>Escape</key>
+    <function>closeGame</function>
+    <args>[0,0]</args>
+  </keybind>
+
+</scheme>

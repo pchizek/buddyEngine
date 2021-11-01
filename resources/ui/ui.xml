@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ui>
+
+  <assets>
+
+    <!-- Test Button -->
+    <asset alias="testButton">
+      <file>testButton.png</file>
+    </asset>
+
+    <!-- Exit -->
+    <asset alias="testButton">
+      <file>testButton.png</file>
+    </asset>
+  
+  </assets>
+
+  <uiset name="gameplay">
+    
+    <mousebutton>
+      <rect>[0,0,64,16]</rect>
+      <texture>testButton</texture>
+    </mousebutton>
+    
+  </uiset>
+
+  <uiset name="gameMenu">
+    
+    <mousebutton>
+      <rect>[0,0,64,16]</rect>
+      <texture>testButton</texture>
+    </mousebutton>
+    
+  </uiset>
+
+</ui>

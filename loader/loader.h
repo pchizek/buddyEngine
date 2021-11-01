@@ -27,6 +27,8 @@ using namespace engine;
 void loadAsset(XMLElement* assetElement);
 void loadObject(XMLElement* objectElement);
 
+void loadControlScheme();
+
 void loadAssets(XMLDocument* levelDoc);
 void loadEnvironment(XMLDocument* levelDoc);
 

@@ -71,18 +71,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\loader;$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\loader;$(IncludePath)</IncludePath>
     <SourcePath>$(SolutionDir);$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\loader;$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\loader;$(IncludePath)</IncludePath>
     <SourcePath>$(SolutionDir);$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\loader;$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\loader;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\loader;$(IncludePath)</IncludePath>
+    <IncludePath>$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\loader;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -90,14 +90,16 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>\behavior;\managers;\loader;..\SFML-2.5.1\include;..\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boost_1_76_0;..\SFML-2.5.1\include;..\tinyxml2;$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\controls;$(projectdir)\loader</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\boost_1_76_0\stage\lib;..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;user32.lib;kernel32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,14 +108,16 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>\behavior;\managers;\loader;..\SFML-2.5.1\include;..\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boost_1_76_0;..\SFML-2.5.1\include;..\tinyxml2;$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\controls;$(projectdir)\loader</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;user32.lib;kernel32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\boost_1_76_0\stage\lib;..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;libboost_program_options-vc142-mt-sgd-x64-1_76.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;user32.lib;kernel32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,17 +128,18 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>\behavior;\managers;\loader;..\SFML-2.5.1\include;..\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boost_1_76_0;..\SFML-2.5.1\include;..\tinyxml2;$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\controls;$(projectdir)\loader</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\boost_1_76_0\stage\lib;..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;user32.lib;kernel32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,39 +150,42 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>\behavior;\managers;\loader;..\SFML-2.5.1\include;..\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\boost_1_76_0;..\SFML-2.5.1\include;..\tinyxml2;$(projectdir)\behavior;$(projectdir)\managers;$(projectdir)\window;$(projectdir)\controls;$(projectdir)\loader</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\boost_1_76_0\stage\lib;..\SFML-2.5.1-build\lib\Release;..\SFML-2.5.1-build\lib\Debug;..\SFML-2.5.1\extlibs\libs-msvc\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;user32.lib;kernel32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerbose</ShowProgress>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="behavior\threadManager.cpp" />
-    <ClCompile Include="controls.cpp" />
+    <ClCompile Include="controls\controls.cpp" />
     <ClCompile Include="loader\loader.cpp" />
     <ClCompile Include="loader\tinyxml2.cpp" />
     <ClCompile Include="loader\xmlTools.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="managers\objManager2d.cpp" />
+    <ClCompile Include="window\gameOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="behavior\resource.h" />
-    <ClInclude Include="behavior\threadManager.h" />
-    <ClInclude Include="controls.h" />
+    <ClInclude Include="controls\controls.h" />
     <ClInclude Include="loader\loader.h" />
     <ClInclude Include="loader\tinyxml2.h" />
     <ClInclude Include="loader\xmlTools.h" />
     <ClInclude Include="managers\objManager2d.h" />
+    <ClInclude Include="window\gameOptions.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\levels\testLevel.xml" />
+    <Xml Include="resources\ui\controlSchemes.xml" />
+    <Xml Include="resources\ui\ui.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

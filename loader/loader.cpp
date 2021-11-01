@@ -14,11 +14,13 @@
 #include <unordered_map>
 #include <objManager2d.h>
 #include <xmlTools.h>
+#include <controls.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
 #define ASSET_PATH "resources\\textures\\"
+//#define SCALEFACTOR 1920.0/320.0
 
 using namespace std;
 using namespace tinyxml2;
@@ -45,9 +47,24 @@ void loadAsset(XMLElement* assetElement) {
 		assetKey = assetKey.substr(0,assetKey.find("."));
 	}
 	string texturePath = string(ASSET_PATH).append(fileName);
-	
+
+	// Get asset scale
+	float assetScaleArray[2];
+	assetChildElement = assetChildElement->NextSiblingElement("scale");
+	if (assetChildElement){
+		parse(assetChildElement->GetText(), assetScaleArray, 2);
+	}
+	else {
+		assetScaleArray[0] = 1.0f;
+		assetScaleArray[1] = 1.0f;
+	}
+	sf::Vector2f scaleFactor;
+	scaleFactor.x = assetScaleArray[0];
+	scaleFactor.y = assetScaleArray[1];
+
+
 	// Call function to import the texture
-	engine::importTexture(texturePath, assetKey);
+	engine::importTexture(texturePath, assetKey, scaleFactor);
 
 }
 
@@ -98,19 +115,19 @@ void loadObject(XMLElement* objectElement) {
 
 	/* Texture */
 	objectChildElement = objectElement->FirstChildElement("texture");
-	sf::Texture* objectTexture{};
+	textureInfo* objectTextureInfo = NULL;
 
 	if (objectChildElement) {
 
 		// Get the asset from the map
-		unordered_map<string, sf::Texture>::iterator asset = engine::textureMap.find(objectChildElement->GetText());
+		unordered_map<string, textureInfo>::iterator asset = engine::textureInfoMap.find(objectChildElement->GetText());
 	
 		// Check if asset is valid
-		if (asset == engine::textureMap.end()) {
+		if (asset == engine::textureInfoMap.end()) {
 			exception("Object: Texture not found");
 		}
 		else {
-			objectTexture = &asset->second;
+			objectTextureInfo = &asset->second;
 		}
 	
 	}
@@ -153,15 +170,35 @@ void loadObject(XMLElement* objectElement) {
 		spriteRect[1] = 0;
 		
 		// Get size of rectangle as full size of texture
-		sf::Vector2u fullSize = objectTexture->getSize(); // Dereferences null pointer but could null pointer ever get here?
+		sf::Vector2u fullSize = objectTextureInfo->assetTexture.getSize(); // Dereferences null pointer but could null pointer ever get here?
 		spriteRect[2] = fullSize.x;
 		spriteRect[3] = fullSize.y;
 	}
 
+
+
 	sf::IntRect sRect(spriteRect[0], spriteRect[1], spriteRect[2], spriteRect[3]);
 
+
 	/* Construct object */
-	engine::object* newObject = new engine::object(worldLoc, objLayer, objectTexture, &sRect);
+	engine::object* newObject = new engine::object(worldLoc, objLayer, objectTextureInfo, &sRect);
+
+	/* Set object scale factor */
+	float localScaleFactorArr[2];
+	sf::Vector2f localScaleFactor;
+	if (objectElement->FirstChildElement("scale")) {
+		objectChildElement = objectElement->FirstChildElement("scale");
+		parse(objectChildElement->GetText(), localScaleFactorArr, 2);
+		localScaleFactor.x = localScaleFactorArr[0];
+		localScaleFactor.y = localScaleFactorArr[1];
+	}
+	else {
+		localScaleFactor.x = 1.0f;
+		localScaleFactor.y = 1.0f;
+	}
+
+	newObject->setLocalScaleFactor(&localScaleFactor);
+	newObject->setObjectScaleFactor();
 
 	/* 
 	 * Add scripts 
@@ -185,6 +222,65 @@ void loadObject(XMLElement* objectElement) {
 
 	engine::lastObject = newObject;
 
+}
+#pragma endregion
+
+#pragma region load_controls_and_ui
+
+void loadControlScheme() {
+	
+	XMLDocument controlSchemesDoc;
+    XMLError loadError = controlSchemesDoc.LoadFile("resources/ui/controlSchemes.xml");
+
+	// Throw error
+	if (loadError) {
+		exception("Controls: Cannot open document");
+	}
+
+	XMLElement* schemeElement = controlSchemesDoc.FirstChildElement("scheme");
+	XMLElement* schemeChildElement;
+
+	while (schemeElement) {
+
+		const char* schemeName = schemeElement->Attribute("name");
+		string schemeKey;
+		if (schemeName) {
+			schemeKey = string(schemeName);
+		}
+		else { exception("Error reading control scheme"); }
+
+		// Get keybinds
+		schemeChildElement = schemeElement->FirstChildElement("keybind");
+
+		keybindVector thisKeybindVector;
+
+		while (schemeChildElement) {
+
+			keyControlFunction thisKeyFunction;
+
+			// Get key on keyboard
+			thisKeyFunction.key = convertToKey.at(string(schemeChildElement->FirstChildElement("key")->GetText()));
+
+			// Get function callback by name
+			string functionName = string(schemeChildElement->FirstChildElement("function")->GetText());
+			thisKeyFunction.controlCallback = engine::controlFunctionMap.at(functionName);
+
+			// Get args
+			parse(string(schemeChildElement->FirstChildElement("args")->GetText()), thisKeyFunction.args);
+			
+			// Put this key bind in the vector
+			thisKeybindVector.push_back(thisKeyFunction);
+
+			// Next keybind in scheme
+			schemeChildElement = schemeChildElement->NextSiblingElement("keybind");
+		}
+
+		// Put this keybind vector into map of all keybind schemes
+		controlSchemeMap.emplace(schemeKey, thisKeybindVector);
+
+		// Next scheme
+		schemeElement = schemeElement->NextSiblingElement("scheme");
+	}
 }
 
 #pragma endregion
@@ -239,15 +335,15 @@ void loadEnvironment(XMLDocument* levelDoc) {
 #pragma region load_level
 void loadLevel(const char filename[]) {
 
+	// Open level file
 	XMLDocument levelDoc;
-
-	// Open file
 	XMLError loadError = levelDoc.LoadFile(filename);
 
 	// Throw error
 	if (loadError) {
 		exception("Level: Cannot open document");
 	}
+
 
 	// Load Assets
 	loadAssets(&levelDoc);
@@ -257,3 +353,18 @@ void loadLevel(const char filename[]) {
 
 }
 #pragma endregion
+
+/*Loader for game */
+#pragma region load_game
+void loadGame() {
+
+	// Load control schemas
+
+	// Load ui
+
+	// Load level (TODO: load start screen)
+
+}
+
+
+
