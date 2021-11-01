@@ -35,6 +35,11 @@ using namespace engine;
 
 int main(){
 
+	/* Initialize some things */
+	initControls();
+	loadControlScheme();
+	setControlScheme("flyingCameraKeyboard");
+
 	/* Create a render window, the view variable*/
 
 	// NOTE: SFML objects have to be passed into functions
@@ -42,7 +47,7 @@ int main(){
 	RenderWindow window(VideoMode(), string("Window"));
 	sf::View gameCamera;
 	
-	setControlMode(controlMode::flyingCamera);
+	//setControlMode(controlMode::flyingCamera);
 	setGameOptions(&window,&gameCamera);
 
 	/* TODO: Package game assets into some sort of library */
@@ -74,7 +79,8 @@ int main(){
 		}
 
 		/* Controls */
-		controlInput(&gameCamera);
+		resolveKeyControls(&window, &gameCamera);
+		//controlInput(&gameCamera);
 		//resolveState();
 
 		/* Clear window for next draw */

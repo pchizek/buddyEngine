@@ -14,6 +14,7 @@
 #include <unordered_map>
 #include <objManager2d.h>
 #include <xmlTools.h>
+#include <controls.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -222,6 +223,65 @@ void loadObject(XMLElement* objectElement) {
 	engine::lastObject = newObject;
 
 }
+#pragma endregion
+
+#pragma region load_controls_and_ui
+
+void loadControlScheme() {
+	
+	XMLDocument controlSchemesDoc;
+    XMLError loadError = controlSchemesDoc.LoadFile("resources/ui/controlSchemes.xml");
+
+	// Throw error
+	if (loadError) {
+		exception("Controls: Cannot open document");
+	}
+
+	XMLElement* schemeElement = controlSchemesDoc.FirstChildElement("scheme");
+	XMLElement* schemeChildElement;
+
+	while (schemeElement) {
+
+		const char* schemeName = schemeElement->Attribute("name");
+		string schemeKey;
+		if (schemeName) {
+			schemeKey = string(schemeName);
+		}
+		else { exception("Error reading control scheme"); }
+
+		// Get keybinds
+		schemeChildElement = schemeElement->FirstChildElement("keybind");
+
+		keybindVector thisKeybindVector;
+
+		while (schemeChildElement) {
+
+			keyControlFunction thisKeyFunction;
+
+			// Get key on keyboard
+			thisKeyFunction.key = convertToKey.at(string(schemeChildElement->FirstChildElement("key")->GetText()));
+
+			// Get function callback by name
+			string functionName = string(schemeChildElement->FirstChildElement("function")->GetText());
+			thisKeyFunction.controlCallback = engine::controlFunctionMap.at(functionName);
+
+			// Get args
+			parse(string(schemeChildElement->FirstChildElement("args")->GetText()), thisKeyFunction.args);
+			
+			// Put this key bind in the vector
+			thisKeybindVector.push_back(thisKeyFunction);
+
+			// Next keybind in scheme
+			schemeChildElement = schemeChildElement->NextSiblingElement("keybind");
+		}
+
+		// Put this keybind vector into map of all keybind schemes
+		controlSchemeMap.emplace(schemeKey, thisKeybindVector);
+
+		// Next scheme
+		schemeElement = schemeElement->NextSiblingElement("scheme");
+	}
+}
 
 #pragma endregion
 
@@ -284,6 +344,7 @@ void loadLevel(const char filename[]) {
 		exception("Level: Cannot open document");
 	}
 
+
 	// Load Assets
 	loadAssets(&levelDoc);
 
@@ -292,3 +353,18 @@ void loadLevel(const char filename[]) {
 
 }
 #pragma endregion
+
+/*Loader for game */
+#pragma region load_game
+void loadGame() {
+
+	// Load control schemas
+
+	// Load ui
+
+	// Load level (TODO: load start screen)
+
+}
+
+
+
