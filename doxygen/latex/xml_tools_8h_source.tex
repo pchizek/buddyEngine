@@ -1,0 +1,36 @@
+\hypertarget{xml_tools_8h_source}{}\doxysection{xml\+Tools.\+h}
+\label{xml_tools_8h_source}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/xmlTools.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/xmlTools.h}}
+\mbox{\hyperlink{xml_tools_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * xmlTools.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Functions for interfacing with XML files using tinyxml2}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Written by: Patrick Chizek   https://github.com/pchizek}}
+\DoxyCodeLine{6 \textcolor{comment}{ * tinyxml2 by: Lee Thomason    https://github.com/leethomason}}
+\DoxyCodeLine{7 \textcolor{comment}{ */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef \_XML\_TOOLS\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define \_XML\_TOOLS\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}tinyxml2.h"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{21 \textcolor{keyword}{using namespace }tinyxml2;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* inputChar, \textcolor{keywordtype}{int}* outputInt);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* inputChar, \textcolor{keywordtype}{int} outputArr[], \textcolor{keywordtype}{int} outputArrSize);}
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* inputChar, \textcolor{keywordtype}{float} outputArr[], \textcolor{keywordtype}{int} outputArrSize);}
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keywordtype}{string} inputString, vector<int>\& outputVector);}
+\DoxyCodeLine{27 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* inputChar, array<int,3> \&outputStdArr);}
+\DoxyCodeLine{28 \textcolor{keywordtype}{void} \mbox{\hyperlink{xml_tools_8h_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* inputChar, array<int,5> \&outputStdArr);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

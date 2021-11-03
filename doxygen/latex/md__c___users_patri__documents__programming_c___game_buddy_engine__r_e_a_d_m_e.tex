@@ -1,0 +1,17 @@
+A C++ based, 2D game engine.\hypertarget{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Acknowledgements}\label{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{Uses \href{https://github.com/SFML/SFML}{\texttt{ SFML (Simple Fast Multimedia Library)}} by Laurent Gomilla et al.}}
+\item {\bfseries{Uses \href{https://github.com/leethomason/tinyxml2}{\texttt{ tiny\+XML-\/2}} by Lee Thomason.}}
+\end{DoxyItemize}\hypertarget{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Install}\label{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md2}
+\hypertarget{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Visual Studio 16 2019 + CMake GUI}\label{md__c___users_patri__documents__programming_c___game_buddy_engine__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item Clone or download buddy\+Engine
+\item Download \href{https://www.sfml-dev.org/download.php}{\texttt{ the latest release of SFML}} to the same location as buddy\+Engine.
+\item Use the CMake GUI to configure SFML \href{https://www.sfml-dev.org/tutorials/2.5/compile-with-cmake.php}{\texttt{ as per their tutorial}} but with additional steps\+:~\newline
+ Set {\ttfamily BUILD\+\_\+\+SHARED\+\_\+\+LIBS} to {\ttfamily FALSE}~\newline
+ Set {\ttfamily SFML\+\_\+\+USE\+\_\+\+STATIC\+\_\+\+STD\+\_\+\+LIBS} TO {\ttfamily TRUE}
+\item Open {\ttfamily SFML.\+sln} and build for {\bfseries{both Debug and Release}}
+\item Build {\ttfamily front.\+sln} and run/debug. 
+\end{DoxyEnumerate}

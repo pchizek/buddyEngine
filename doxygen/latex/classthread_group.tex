@@ -1,0 +1,77 @@
+\hypertarget{classthread_group}{}\doxysection{thread\+Group Class Reference}
+\label{classthread_group}\index{threadGroup@{threadGroup}}
+
+
+{\ttfamily \#include $<$thread\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classthread_group_a51fac696f1b245cc9f0cf9a81a6fa743}{thread\+Group}} (void)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\int \mbox{\hyperlink{classthread_group_a92f0bf053e37b0d3bb3de57f18586d91}{add\+Task}} (Args... args)
+\item 
+int \mbox{\hyperlink{classthread_group_a4a5f6b66115d47434eb0a63f80425f66}{toggle\+Task}} (int task\+Id, bool active)
+\item 
+int \mbox{\hyperlink{classthread_group_a8beaee95ccbc411830d2cb18f1971b17}{run}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ thread $>$ \mbox{\hyperlink{classthread_group_a431ee23c9bcf63cc6ad4ba9facae3be6}{threads}}
+\item 
+vector$<$ bool $>$ \mbox{\hyperlink{classthread_group_ad2c03bd769c1a4e94a81a3591cc6d449}{is\+Active}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classthread_group_a51fac696f1b245cc9f0cf9a81a6fa743}\label{classthread_group_a51fac696f1b245cc9f0cf9a81a6fa743}} 
+\index{threadGroup@{threadGroup}!threadGroup@{threadGroup}}
+\index{threadGroup@{threadGroup}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{threadGroup()}{threadGroup()}}
+{\footnotesize\ttfamily thread\+Group\+::thread\+Group (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classthread_group_a92f0bf053e37b0d3bb3de57f18586d91}\label{classthread_group_a92f0bf053e37b0d3bb3de57f18586d91}} 
+\index{threadGroup@{threadGroup}!addTask@{addTask}}
+\index{addTask@{addTask}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{addTask()}{addTask()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+int thread\+Group\+::add\+Task (\begin{DoxyParamCaption}\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classthread_group_a8beaee95ccbc411830d2cb18f1971b17}\label{classthread_group_a8beaee95ccbc411830d2cb18f1971b17}} 
+\index{threadGroup@{threadGroup}!run@{run}}
+\index{run@{run}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int thread\+Group\+::run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classthread_group_a4a5f6b66115d47434eb0a63f80425f66}\label{classthread_group_a4a5f6b66115d47434eb0a63f80425f66}} 
+\index{threadGroup@{threadGroup}!toggleTask@{toggleTask}}
+\index{toggleTask@{toggleTask}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{toggleTask()}{toggleTask()}}
+{\footnotesize\ttfamily int thread\+Group\+::toggle\+Task (\begin{DoxyParamCaption}\item[{int}]{task\+Id,  }\item[{bool}]{active }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classthread_group_ad2c03bd769c1a4e94a81a3591cc6d449}\label{classthread_group_ad2c03bd769c1a4e94a81a3591cc6d449}} 
+\index{threadGroup@{threadGroup}!isActive@{isActive}}
+\index{isActive@{isActive}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{isActive}{isActive}}
+{\footnotesize\ttfamily vector$<$bool$>$ thread\+Group\+::is\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classthread_group_a431ee23c9bcf63cc6ad4ba9facae3be6}\label{classthread_group_a431ee23c9bcf63cc6ad4ba9facae3be6}} 
+\index{threadGroup@{threadGroup}!threads@{threads}}
+\index{threads@{threads}!threadGroup@{threadGroup}}
+\doxysubsubsection{\texorpdfstring{threads}{threads}}
+{\footnotesize\ttfamily vector$<$thread$>$ thread\+Group\+::threads\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/behavior/\mbox{\hyperlink{thread_manager_8h}{thread\+Manager.\+h}}\item 
+C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/behavior/\mbox{\hyperlink{behavior_2thread_manager_8cpp}{thread\+Manager.\+cpp}}\item 
+C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/managers/\mbox{\hyperlink{managers_2thread_manager_8cpp}{thread\+Manager.\+cpp}}\end{DoxyCompactItemize}

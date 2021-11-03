@@ -1,0 +1,106 @@
+\hypertarget{controls_8h}{}\doxysection{C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/controls/controls.h File Reference}
+\label{controls_8h}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.h}}
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$obj\+Manager2d.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structengine_1_1key_control_function}{engine\+::key\+Control\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceengine}{engine}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{controls_8h_adbb87262c6f561855b3c08d96f65b087}{MV\+\_\+\+LEFT}}~0
+\item 
+\#define \mbox{\hyperlink{controls_8h_a8ecae89fce1ddbf811c50ee7b04750a5}{MV\+\_\+\+RIGHT}}~1
+\item 
+\#define \mbox{\hyperlink{controls_8h_a86534f6a7b94db63699f8c9be38e8b2c}{MV\+\_\+\+JUMP}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{engine\+::control\+Function}}) (sf\+::\+Window $\ast$game\+Window, sf\+::\+View $\ast$game\+Camera, vector$<$ int $>$ args)
+\item 
+typedef vector$<$ key\+Control\+Function $>$ \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{engine\+::keybind\+Vector}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{controls_8h_a72775cd448ae8d86ccb72a70638d9455}{move\+Camera}} (sf\+::\+Window $\ast$game\+Window, sf\+::\+View $\ast$game\+Camera, vector$<$ int $>$ args)
+\item 
+void \mbox{\hyperlink{controls_8h_a18dacbc08f6d3cdff2f3ea87eea200f4}{resolve\+Key\+Controls}} (sf\+::\+Window $\ast$game\+Window, sf\+::\+View $\ast$game\+Camera)
+\item 
+void \mbox{\hyperlink{controls_8h_a303e7e82db9e1c850c5cfaebc1a7f2c6}{set\+Control\+Scheme}} (string control\+Scheme\+Name)
+\item 
+void \mbox{\hyperlink{controls_8h_ade2ac8db32081bbf24ad4ec0b505910e}{init\+Controls}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{controls_8h_abec826f149a93a12d9e8ee03deaf6eae}{player\+State}} \mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{controls_8h_a86534f6a7b94db63699f8c9be38e8b2c}\label{controls_8h_a86534f6a7b94db63699f8c9be38e8b2c}} 
+\index{controls.h@{controls.h}!MV\_JUMP@{MV\_JUMP}}
+\index{MV\_JUMP@{MV\_JUMP}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{MV\_JUMP}{MV\_JUMP}}
+{\footnotesize\ttfamily \#define MV\+\_\+\+JUMP~2}
+
+\mbox{\Hypertarget{controls_8h_adbb87262c6f561855b3c08d96f65b087}\label{controls_8h_adbb87262c6f561855b3c08d96f65b087}} 
+\index{controls.h@{controls.h}!MV\_LEFT@{MV\_LEFT}}
+\index{MV\_LEFT@{MV\_LEFT}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{MV\_LEFT}{MV\_LEFT}}
+{\footnotesize\ttfamily \#define MV\+\_\+\+LEFT~0}
+
+\mbox{\Hypertarget{controls_8h_a8ecae89fce1ddbf811c50ee7b04750a5}\label{controls_8h_a8ecae89fce1ddbf811c50ee7b04750a5}} 
+\index{controls.h@{controls.h}!MV\_RIGHT@{MV\_RIGHT}}
+\index{MV\_RIGHT@{MV\_RIGHT}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{MV\_RIGHT}{MV\_RIGHT}}
+{\footnotesize\ttfamily \#define MV\+\_\+\+RIGHT~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{controls_8h_ade2ac8db32081bbf24ad4ec0b505910e}\label{controls_8h_ade2ac8db32081bbf24ad4ec0b505910e}} 
+\index{controls.h@{controls.h}!initControls@{initControls}}
+\index{initControls@{initControls}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{initControls()}{initControls()}}
+{\footnotesize\ttfamily void init\+Controls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8h_a72775cd448ae8d86ccb72a70638d9455}\label{controls_8h_a72775cd448ae8d86ccb72a70638d9455}} 
+\index{controls.h@{controls.h}!moveCamera@{moveCamera}}
+\index{moveCamera@{moveCamera}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{moveCamera()}{moveCamera()}}
+{\footnotesize\ttfamily void move\+Camera (\begin{DoxyParamCaption}\item[{sf\+::\+Window $\ast$}]{game\+Window,  }\item[{sf\+::\+View $\ast$}]{game\+Camera,  }\item[{vector$<$ int $>$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8h_a18dacbc08f6d3cdff2f3ea87eea200f4}\label{controls_8h_a18dacbc08f6d3cdff2f3ea87eea200f4}} 
+\index{controls.h@{controls.h}!resolveKeyControls@{resolveKeyControls}}
+\index{resolveKeyControls@{resolveKeyControls}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{resolveKeyControls()}{resolveKeyControls()}}
+{\footnotesize\ttfamily void resolve\+Key\+Controls (\begin{DoxyParamCaption}\item[{sf\+::\+Window $\ast$}]{game\+Window,  }\item[{sf\+::\+View $\ast$}]{game\+Camera }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8h_a303e7e82db9e1c850c5cfaebc1a7f2c6}\label{controls_8h_a303e7e82db9e1c850c5cfaebc1a7f2c6}} 
+\index{controls.h@{controls.h}!setControlScheme@{setControlScheme}}
+\index{setControlScheme@{setControlScheme}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{setControlScheme()}{setControlScheme()}}
+{\footnotesize\ttfamily void set\+Control\+Scheme (\begin{DoxyParamCaption}\item[{string}]{control\+Scheme\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{controls_8h_abec826f149a93a12d9e8ee03deaf6eae}\label{controls_8h_abec826f149a93a12d9e8ee03deaf6eae}} 
+\index{controls.h@{controls.h}!playerState@{playerState}}
+\index{playerState@{playerState}!controls.h@{controls.h}}
+\doxysubsubsection{\texorpdfstring{playerState}{playerState}}
+{\footnotesize\ttfamily int player\+State\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

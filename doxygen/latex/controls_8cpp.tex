@@ -1,0 +1,117 @@
+\hypertarget{controls_8cpp}{}\doxysection{C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/controls/controls.cpp File Reference}
+\label{controls_8cpp}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.cpp@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.cpp}}
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+{\ttfamily \#include $<$controls.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$obj\+Manager2d.\+h$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceengine}{engine}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{controls_8cpp_ad2d7243c099b33b2343976dd3ee8b36b}{ACCEL}}~2
+\item 
+\#define \mbox{\hyperlink{controls_8cpp_a7e49c0004749dd2461e791b4c4a97895}{MAXSPEED}}~10
+\item 
+\#define \mbox{\hyperlink{controls_8cpp_a91df89e776ae8a52104521cac4993cae}{DECEL\+\_\+\+STEP}}~6
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{controls_8cpp_a4783d716ca9b81314f80dc75f4b58958}{move\+Camera}} (Window $\ast$game\+Window, View $\ast$game\+Camera, vector$<$ int $>$ args)
+\item 
+void \mbox{\hyperlink{controls_8cpp_ad1b7b1ac9e765a6916d9ca6b57cfddbf}{close\+Game}} (Window $\ast$game\+Window, View $\ast$game\+Camera, vector$<$ int $>$ args)
+\item 
+void \mbox{\hyperlink{controls_8cpp_a303e7e82db9e1c850c5cfaebc1a7f2c6}{set\+Control\+Scheme}} (string control\+Scheme\+Name)
+\item 
+void \mbox{\hyperlink{controls_8cpp_a2ad7b9d7e2a3e3bfb332290c0cab211d}{resolve\+Key\+Controls}} (Window $\ast$game\+Window, View $\ast$game\+Camera)
+\item 
+void \mbox{\hyperlink{controls_8cpp_ade2ac8db32081bbf24ad4ec0b505910e}{init\+Controls}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{controls_8cpp_abec826f149a93a12d9e8ee03deaf6eae}{player\+State}} \mbox{[}4\mbox{]} = \{ 0,0,0,0 \}
+\item 
+int \mbox{\hyperlink{controls_8cpp_ac44673786db6bddefc878e4e48df4624}{camera\+Bump}} \mbox{[}2\mbox{]} = \{ 0,0 \}
+\item 
+unordered\+\_\+map$<$ string, Keyboard\+::\+Key $>$ \mbox{\hyperlink{namespaceengine_a4b7fc4dd478210356cac9326f8253768}{engine\+::convert\+To\+Key}}
+\item 
+unordered\+\_\+map$<$ string, control\+Function $>$ \mbox{\hyperlink{namespaceengine_a705f66087b89d5417452a1de62a7958b}{engine\+::control\+Function\+Map}}
+\item 
+keybind\+Vector $\ast$ \mbox{\hyperlink{namespaceengine_a06f420c360911b1625d8b010b831ae33}{engine\+::current\+Keybind\+Vector}}
+\item 
+unordered\+\_\+map$<$ string, keybind\+Vector $>$ \mbox{\hyperlink{namespaceengine_a9faab142047689da972298261d50c0f7}{engine\+::control\+Scheme\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{controls_8cpp_ad2d7243c099b33b2343976dd3ee8b36b}\label{controls_8cpp_ad2d7243c099b33b2343976dd3ee8b36b}} 
+\index{controls.cpp@{controls.cpp}!ACCEL@{ACCEL}}
+\index{ACCEL@{ACCEL}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{ACCEL}{ACCEL}}
+{\footnotesize\ttfamily \#define ACCEL~2}
+
+\mbox{\Hypertarget{controls_8cpp_a91df89e776ae8a52104521cac4993cae}\label{controls_8cpp_a91df89e776ae8a52104521cac4993cae}} 
+\index{controls.cpp@{controls.cpp}!DECEL\_STEP@{DECEL\_STEP}}
+\index{DECEL\_STEP@{DECEL\_STEP}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{DECEL\_STEP}{DECEL\_STEP}}
+{\footnotesize\ttfamily \#define DECEL\+\_\+\+STEP~6}
+
+\mbox{\Hypertarget{controls_8cpp_a7e49c0004749dd2461e791b4c4a97895}\label{controls_8cpp_a7e49c0004749dd2461e791b4c4a97895}} 
+\index{controls.cpp@{controls.cpp}!MAXSPEED@{MAXSPEED}}
+\index{MAXSPEED@{MAXSPEED}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{MAXSPEED}{MAXSPEED}}
+{\footnotesize\ttfamily \#define MAXSPEED~10}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{controls_8cpp_ad1b7b1ac9e765a6916d9ca6b57cfddbf}\label{controls_8cpp_ad1b7b1ac9e765a6916d9ca6b57cfddbf}} 
+\index{controls.cpp@{controls.cpp}!closeGame@{closeGame}}
+\index{closeGame@{closeGame}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{closeGame()}{closeGame()}}
+{\footnotesize\ttfamily void close\+Game (\begin{DoxyParamCaption}\item[{Window $\ast$}]{game\+Window,  }\item[{View $\ast$}]{game\+Camera,  }\item[{vector$<$ int $>$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8cpp_ade2ac8db32081bbf24ad4ec0b505910e}\label{controls_8cpp_ade2ac8db32081bbf24ad4ec0b505910e}} 
+\index{controls.cpp@{controls.cpp}!initControls@{initControls}}
+\index{initControls@{initControls}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{initControls()}{initControls()}}
+{\footnotesize\ttfamily void init\+Controls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8cpp_a4783d716ca9b81314f80dc75f4b58958}\label{controls_8cpp_a4783d716ca9b81314f80dc75f4b58958}} 
+\index{controls.cpp@{controls.cpp}!moveCamera@{moveCamera}}
+\index{moveCamera@{moveCamera}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{moveCamera()}{moveCamera()}}
+{\footnotesize\ttfamily void move\+Camera (\begin{DoxyParamCaption}\item[{Window $\ast$}]{game\+Window,  }\item[{View $\ast$}]{game\+Camera,  }\item[{vector$<$ int $>$}]{args }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8cpp_a2ad7b9d7e2a3e3bfb332290c0cab211d}\label{controls_8cpp_a2ad7b9d7e2a3e3bfb332290c0cab211d}} 
+\index{controls.cpp@{controls.cpp}!resolveKeyControls@{resolveKeyControls}}
+\index{resolveKeyControls@{resolveKeyControls}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{resolveKeyControls()}{resolveKeyControls()}}
+{\footnotesize\ttfamily void resolve\+Key\+Controls (\begin{DoxyParamCaption}\item[{Window $\ast$}]{game\+Window,  }\item[{View $\ast$}]{game\+Camera }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{controls_8cpp_a303e7e82db9e1c850c5cfaebc1a7f2c6}\label{controls_8cpp_a303e7e82db9e1c850c5cfaebc1a7f2c6}} 
+\index{controls.cpp@{controls.cpp}!setControlScheme@{setControlScheme}}
+\index{setControlScheme@{setControlScheme}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{setControlScheme()}{setControlScheme()}}
+{\footnotesize\ttfamily void set\+Control\+Scheme (\begin{DoxyParamCaption}\item[{string}]{control\+Scheme\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{controls_8cpp_ac44673786db6bddefc878e4e48df4624}\label{controls_8cpp_ac44673786db6bddefc878e4e48df4624}} 
+\index{controls.cpp@{controls.cpp}!cameraBump@{cameraBump}}
+\index{cameraBump@{cameraBump}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{cameraBump}{cameraBump}}
+{\footnotesize\ttfamily int camera\+Bump\mbox{[}2\mbox{]} = \{ 0,0 \}}
+
+\mbox{\Hypertarget{controls_8cpp_abec826f149a93a12d9e8ee03deaf6eae}\label{controls_8cpp_abec826f149a93a12d9e8ee03deaf6eae}} 
+\index{controls.cpp@{controls.cpp}!playerState@{playerState}}
+\index{playerState@{playerState}!controls.cpp@{controls.cpp}}
+\doxysubsubsection{\texorpdfstring{playerState}{playerState}}
+{\footnotesize\ttfamily int player\+State\mbox{[}4\mbox{]} = \{ 0,0,0,0 \}}
+

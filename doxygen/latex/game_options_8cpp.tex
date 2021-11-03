@@ -1,0 +1,62 @@
+\hypertarget{game_options_8cpp}{}\doxysection{C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/window/game\+Options.cpp File Reference}
+\label{game_options_8cpp}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/window/gameOptions.cpp@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/window/gameOptions.cpp}}
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/program\+\_\+options.\+hpp$>$}\newline
+{\ttfamily \#include $<$tinyxml2.\+h$>$}\newline
+{\ttfamily \#include $<$obj\+Manager2d.\+h$>$}\newline
+{\ttfamily \#include $<$game\+Options.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{game_options_8cpp_ae36c1f542ee532f82a883d83f0f15e0d}{FAUX\+\_\+\+RES\+\_\+\+HEIGHT}}~180.\+0
+\item 
+\#define \mbox{\hyperlink{game_options_8cpp_a2720077299afe43336c1956ef1f363fc}{FAUX\+\_\+\+RES\+\_\+\+WIDTH}}~320.\+0
+\item 
+\#define \mbox{\hyperlink{game_options_8cpp_aeb9d0a30c2521c2af44502733536aa88}{WIDE\+\_\+\+RATIO}}~1.\+7777
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game_options_8cpp_a38f4d69c18b1b1badd6c44d1ccb15065}{set\+Game\+Options}} (Render\+Window $\ast$\mbox{\hyperlink{game_window_8h_ae90e155ced28d8d3e69df6bad6b6d893}{window}}, View $\ast$game\+Camera)
+\item 
+void \mbox{\hyperlink{game_options_8cpp_adbf1276e2f9d01237a70051df138a694}{set\+Window\+Options}} (Render\+Window $\ast$\mbox{\hyperlink{game_window_8h_ae90e155ced28d8d3e69df6bad6b6d893}{window}}, View $\ast$game\+Camera, string resolution, bool fullscreen)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{game_options_8cpp_ae36c1f542ee532f82a883d83f0f15e0d}\label{game_options_8cpp_ae36c1f542ee532f82a883d83f0f15e0d}} 
+\index{gameOptions.cpp@{gameOptions.cpp}!FAUX\_RES\_HEIGHT@{FAUX\_RES\_HEIGHT}}
+\index{FAUX\_RES\_HEIGHT@{FAUX\_RES\_HEIGHT}!gameOptions.cpp@{gameOptions.cpp}}
+\doxysubsubsection{\texorpdfstring{FAUX\_RES\_HEIGHT}{FAUX\_RES\_HEIGHT}}
+{\footnotesize\ttfamily \#define FAUX\+\_\+\+RES\+\_\+\+HEIGHT~180.\+0}
+
+\mbox{\Hypertarget{game_options_8cpp_a2720077299afe43336c1956ef1f363fc}\label{game_options_8cpp_a2720077299afe43336c1956ef1f363fc}} 
+\index{gameOptions.cpp@{gameOptions.cpp}!FAUX\_RES\_WIDTH@{FAUX\_RES\_WIDTH}}
+\index{FAUX\_RES\_WIDTH@{FAUX\_RES\_WIDTH}!gameOptions.cpp@{gameOptions.cpp}}
+\doxysubsubsection{\texorpdfstring{FAUX\_RES\_WIDTH}{FAUX\_RES\_WIDTH}}
+{\footnotesize\ttfamily \#define FAUX\+\_\+\+RES\+\_\+\+WIDTH~320.\+0}
+
+\mbox{\Hypertarget{game_options_8cpp_aeb9d0a30c2521c2af44502733536aa88}\label{game_options_8cpp_aeb9d0a30c2521c2af44502733536aa88}} 
+\index{gameOptions.cpp@{gameOptions.cpp}!WIDE\_RATIO@{WIDE\_RATIO}}
+\index{WIDE\_RATIO@{WIDE\_RATIO}!gameOptions.cpp@{gameOptions.cpp}}
+\doxysubsubsection{\texorpdfstring{WIDE\_RATIO}{WIDE\_RATIO}}
+{\footnotesize\ttfamily \#define WIDE\+\_\+\+RATIO~1.\+7777}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_options_8cpp_a38f4d69c18b1b1badd6c44d1ccb15065}\label{game_options_8cpp_a38f4d69c18b1b1badd6c44d1ccb15065}} 
+\index{gameOptions.cpp@{gameOptions.cpp}!setGameOptions@{setGameOptions}}
+\index{setGameOptions@{setGameOptions}!gameOptions.cpp@{gameOptions.cpp}}
+\doxysubsubsection{\texorpdfstring{setGameOptions()}{setGameOptions()}}
+{\footnotesize\ttfamily void set\+Game\+Options (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{window,  }\item[{View $\ast$}]{game\+Camera }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{game_options_8cpp_adbf1276e2f9d01237a70051df138a694}\label{game_options_8cpp_adbf1276e2f9d01237a70051df138a694}} 
+\index{gameOptions.cpp@{gameOptions.cpp}!setWindowOptions@{setWindowOptions}}
+\index{setWindowOptions@{setWindowOptions}!gameOptions.cpp@{gameOptions.cpp}}
+\doxysubsubsection{\texorpdfstring{setWindowOptions()}{setWindowOptions()}}
+{\footnotesize\ttfamily void set\+Window\+Options (\begin{DoxyParamCaption}\item[{Render\+Window $\ast$}]{window,  }\item[{View $\ast$}]{game\+Camera,  }\item[{string}]{resolution,  }\item[{bool}]{fullscreen }\end{DoxyParamCaption})}
+

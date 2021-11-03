@@ -1,0 +1,89 @@
+\hypertarget{loader_8cpp}{}\doxysection{C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/loader/loader.cpp File Reference}
+\label{loader_8cpp}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/loader.cpp@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/loader.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}tinyxml2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}loader.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$obj\+Manager2d.\+h$>$}\newline
+{\ttfamily \#include $<$xml\+Tools.\+h$>$}\newline
+{\ttfamily \#include $<$controls.\+h$>$}\newline
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{loader_8cpp_aea693c757dd4633eae56f41137ed51f7}{ASSET\+\_\+\+PATH}}~\char`\"{}resources\textbackslash{}\textbackslash{}textures\textbackslash{}\textbackslash{}\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{loader_8cpp_a668dfad1d3c3ce7d73af5b95ca6ed5af}{load\+Asset}} (XMLElement $\ast$asset\+Element)
+\item 
+void \mbox{\hyperlink{loader_8cpp_a268092b6542134da0767e7507e81878e}{load\+Object}} (XMLElement $\ast$object\+Element)
+\item 
+void \mbox{\hyperlink{loader_8cpp_a47d0b2e03a59109b5854de109718b6ec}{load\+Control\+Scheme}} ()
+\item 
+void \mbox{\hyperlink{loader_8cpp_a4c1d33a78fa8f864bbc4aca01ab57bc4}{load\+Assets}} (XMLDocument $\ast$level\+Doc)
+\item 
+void \mbox{\hyperlink{loader_8cpp_a35d09ae5f796e2a0adeb9458f7bdec95}{load\+Environment}} (XMLDocument $\ast$level\+Doc)
+\item 
+void \mbox{\hyperlink{loader_8cpp_a073b3ac3289a5fb7126224a535efc021}{load\+Level}} (const char filename\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{loader_8cpp_ab31643a884d56d21baa151f155d93b26}{load\+Game}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{loader_8cpp_aea693c757dd4633eae56f41137ed51f7}\label{loader_8cpp_aea693c757dd4633eae56f41137ed51f7}} 
+\index{loader.cpp@{loader.cpp}!ASSET\_PATH@{ASSET\_PATH}}
+\index{ASSET\_PATH@{ASSET\_PATH}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{ASSET\_PATH}{ASSET\_PATH}}
+{\footnotesize\ttfamily \#define ASSET\+\_\+\+PATH~\char`\"{}resources\textbackslash{}\textbackslash{}textures\textbackslash{}\textbackslash{}\char`\"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{loader_8cpp_a668dfad1d3c3ce7d73af5b95ca6ed5af}\label{loader_8cpp_a668dfad1d3c3ce7d73af5b95ca6ed5af}} 
+\index{loader.cpp@{loader.cpp}!loadAsset@{loadAsset}}
+\index{loadAsset@{loadAsset}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadAsset()}{loadAsset()}}
+{\footnotesize\ttfamily void load\+Asset (\begin{DoxyParamCaption}\item[{XMLElement $\ast$}]{asset\+Element }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_a4c1d33a78fa8f864bbc4aca01ab57bc4}\label{loader_8cpp_a4c1d33a78fa8f864bbc4aca01ab57bc4}} 
+\index{loader.cpp@{loader.cpp}!loadAssets@{loadAssets}}
+\index{loadAssets@{loadAssets}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadAssets()}{loadAssets()}}
+{\footnotesize\ttfamily void load\+Assets (\begin{DoxyParamCaption}\item[{XMLDocument $\ast$}]{level\+Doc }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_a47d0b2e03a59109b5854de109718b6ec}\label{loader_8cpp_a47d0b2e03a59109b5854de109718b6ec}} 
+\index{loader.cpp@{loader.cpp}!loadControlScheme@{loadControlScheme}}
+\index{loadControlScheme@{loadControlScheme}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadControlScheme()}{loadControlScheme()}}
+{\footnotesize\ttfamily void load\+Control\+Scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_a35d09ae5f796e2a0adeb9458f7bdec95}\label{loader_8cpp_a35d09ae5f796e2a0adeb9458f7bdec95}} 
+\index{loader.cpp@{loader.cpp}!loadEnvironment@{loadEnvironment}}
+\index{loadEnvironment@{loadEnvironment}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadEnvironment()}{loadEnvironment()}}
+{\footnotesize\ttfamily void load\+Environment (\begin{DoxyParamCaption}\item[{XMLDocument $\ast$}]{level\+Doc }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_ab31643a884d56d21baa151f155d93b26}\label{loader_8cpp_ab31643a884d56d21baa151f155d93b26}} 
+\index{loader.cpp@{loader.cpp}!loadGame@{loadGame}}
+\index{loadGame@{loadGame}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadGame()}{loadGame()}}
+{\footnotesize\ttfamily void load\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_a073b3ac3289a5fb7126224a535efc021}\label{loader_8cpp_a073b3ac3289a5fb7126224a535efc021}} 
+\index{loader.cpp@{loader.cpp}!loadLevel@{loadLevel}}
+\index{loadLevel@{loadLevel}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadLevel()}{loadLevel()}}
+{\footnotesize\ttfamily void load\+Level (\begin{DoxyParamCaption}\item[{const char}]{filename\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{loader_8cpp_a268092b6542134da0767e7507e81878e}\label{loader_8cpp_a268092b6542134da0767e7507e81878e}} 
+\index{loader.cpp@{loader.cpp}!loadObject@{loadObject}}
+\index{loadObject@{loadObject}!loader.cpp@{loader.cpp}}
+\doxysubsubsection{\texorpdfstring{loadObject()}{loadObject()}}
+{\footnotesize\ttfamily void load\+Object (\begin{DoxyParamCaption}\item[{XMLElement $\ast$}]{object\+Element }\end{DoxyParamCaption})}
+

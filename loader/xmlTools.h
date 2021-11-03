@@ -5,9 +5,7 @@
  * Written by: Patrick Chizek	https://github.com/pchizek
  * tinyxml2 by: Lee Thomason	https://github.com/leethomason
  */
-
-#ifndef _XML_TOOLS_H
-#define _XML_TOOLS_H
+#pragma once
 
 #include <stdio.h>
 #include <iostream>
@@ -26,5 +24,3 @@ void parse(const char* inputChar, float outputArr[], int outputArrSize);
 void parse(string inputString, vector<int>& outputVector);
 void parse(const char* inputChar, array<int,3> &outputStdArr);
 void parse(const char* inputChar, array<int,5> &outputStdArr);
-
-#endif

@@ -1,0 +1,91 @@
+\hypertarget{namespaceengine}{}\doxysection{engine Namespace Reference}
+\label{namespaceengine}\index{engine@{engine}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structengine_1_1key_control_function}{key\+Control\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{control\+Function}}) (sf\+::\+Window $\ast$game\+Window, sf\+::\+View $\ast$game\+Camera, vector$<$ int $>$ args)
+\item 
+typedef vector$<$ \mbox{\hyperlink{structengine_1_1key_control_function}{key\+Control\+Function}} $>$ \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybind\+Vector}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unordered\+\_\+map$<$ string, Keyboard\+::\+Key $>$ \mbox{\hyperlink{namespaceengine_a4b7fc4dd478210356cac9326f8253768}{convert\+To\+Key}}
+\item 
+unordered\+\_\+map$<$ string, \mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{control\+Function}} $>$ \mbox{\hyperlink{namespaceengine_a705f66087b89d5417452a1de62a7958b}{control\+Function\+Map}}
+\item 
+\mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybind\+Vector}} $\ast$ \mbox{\hyperlink{namespaceengine_a06f420c360911b1625d8b010b831ae33}{current\+Keybind\+Vector}}
+\item 
+unordered\+\_\+map$<$ string, \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybind\+Vector}} $>$ \mbox{\hyperlink{namespaceengine_a9faab142047689da972298261d50c0f7}{control\+Scheme\+Map}}
+\item 
+object $\ast$ \mbox{\hyperlink{namespaceengine_a89144cf95e0807984a6428a80c1710a3}{first\+Object}}
+\item 
+object $\ast$ \mbox{\hyperlink{namespaceengine_aa7a89231aa039a6be6dfa2de8928f3a0}{last\+Object}}
+\item 
+unordered\+\_\+map$<$ string, texture\+Info $>$ \mbox{\hyperlink{namespaceengine_a649717fcacdf5e679af6ffa3d01e4d92}{texture\+Info\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}\label{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}} 
+\index{engine@{engine}!controlFunction@{controlFunction}}
+\index{controlFunction@{controlFunction}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{controlFunction}{controlFunction}}
+{\footnotesize\ttfamily typedef void($\ast$ engine\+::control\+Function) (sf\+::\+Window $\ast$game\+Window, sf\+::\+View $\ast$game\+Camera, vector$<$ int $>$ args)}
+
+\mbox{\Hypertarget{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}\label{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}} 
+\index{engine@{engine}!keybindVector@{keybindVector}}
+\index{keybindVector@{keybindVector}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{keybindVector}{keybindVector}}
+{\footnotesize\ttfamily typedef vector$<$\mbox{\hyperlink{structengine_1_1key_control_function}{key\+Control\+Function}}$>$ \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{engine\+::keybind\+Vector}}}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceengine_a705f66087b89d5417452a1de62a7958b}\label{namespaceengine_a705f66087b89d5417452a1de62a7958b}} 
+\index{engine@{engine}!controlFunctionMap@{controlFunctionMap}}
+\index{controlFunctionMap@{controlFunctionMap}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{controlFunctionMap}{controlFunctionMap}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ string, \mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{control\+Function}} $>$ engine\+::control\+Function\+Map}
+
+\mbox{\Hypertarget{namespaceengine_a9faab142047689da972298261d50c0f7}\label{namespaceengine_a9faab142047689da972298261d50c0f7}} 
+\index{engine@{engine}!controlSchemeMap@{controlSchemeMap}}
+\index{controlSchemeMap@{controlSchemeMap}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{controlSchemeMap}{controlSchemeMap}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ string, \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybind\+Vector}} $>$ engine\+::control\+Scheme\+Map}
+
+\mbox{\Hypertarget{namespaceengine_a4b7fc4dd478210356cac9326f8253768}\label{namespaceengine_a4b7fc4dd478210356cac9326f8253768}} 
+\index{engine@{engine}!convertToKey@{convertToKey}}
+\index{convertToKey@{convertToKey}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{convertToKey}{convertToKey}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ string, sf\+::\+Keyboard\+::\+Key $>$ engine\+::convert\+To\+Key}
+
+\mbox{\Hypertarget{namespaceengine_a06f420c360911b1625d8b010b831ae33}\label{namespaceengine_a06f420c360911b1625d8b010b831ae33}} 
+\index{engine@{engine}!currentKeybindVector@{currentKeybindVector}}
+\index{currentKeybindVector@{currentKeybindVector}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{currentKeybindVector}{currentKeybindVector}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybind\+Vector}} $\ast$ engine\+::current\+Keybind\+Vector}
+
+\mbox{\Hypertarget{namespaceengine_a89144cf95e0807984a6428a80c1710a3}\label{namespaceengine_a89144cf95e0807984a6428a80c1710a3}} 
+\index{engine@{engine}!firstObject@{firstObject}}
+\index{firstObject@{firstObject}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{firstObject}{firstObject}}
+{\footnotesize\ttfamily object$\ast$ engine\+::first\+Object}
+
+\mbox{\Hypertarget{namespaceengine_aa7a89231aa039a6be6dfa2de8928f3a0}\label{namespaceengine_aa7a89231aa039a6be6dfa2de8928f3a0}} 
+\index{engine@{engine}!lastObject@{lastObject}}
+\index{lastObject@{lastObject}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{lastObject}{lastObject}}
+{\footnotesize\ttfamily object$\ast$ engine\+::last\+Object}
+
+\mbox{\Hypertarget{namespaceengine_a649717fcacdf5e679af6ffa3d01e4d92}\label{namespaceengine_a649717fcacdf5e679af6ffa3d01e4d92}} 
+\index{engine@{engine}!textureInfoMap@{textureInfoMap}}
+\index{textureInfoMap@{textureInfoMap}!engine@{engine}}
+\doxysubsubsection{\texorpdfstring{textureInfoMap}{textureInfoMap}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$string, texture\+Info$>$ engine\+::texture\+Info\+Map}
+
