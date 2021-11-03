@@ -1,0 +1,80 @@
+\hypertarget{controls_8h_source}{}\doxysection{controls.\+h}
+\label{controls_8h_source}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/controls/controls.h}}
+\mbox{\hyperlink{controls_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * controls.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Control Input Library}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Written by: Patrick Chizek}}
+\DoxyCodeLine{6 \textcolor{comment}{ * https://github.com/pchizek}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_CONTROLS\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_CONTROLS\_H}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{obj_manager2d_8h}{objManager2d.h}}>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define MV\_LEFT     0}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define MV\_RIGHT    1}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define MV\_JUMP     2}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{controls_8h_abec826f149a93a12d9e8ee03deaf6eae}{playerState}}[4];}
+\DoxyCodeLine{24 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceengine}{engine}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Define controlFunction as a pointer to a function of this type}}
+\DoxyCodeLine{29     \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{controlFunction}})(sf::Window* gameWindow, sf::View* gameCamera, vector<int> args);}
+\DoxyCodeLine{30     \textcolor{comment}{//typedef void (*controlFunction)(sf::Window*, vector<int> args);}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Wrap controlFunction with key and arguments defined by the keybind element in the xml file}}
+\DoxyCodeLine{33     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{34         sf::Keyboard::Key \mbox{\hyperlink{structengine_1_1key_control_function_a78ed0710362e5eba72fb200c03cbe730}{key}};}
+\DoxyCodeLine{35         \mbox{\hyperlink{namespaceengine_a287dca2545de076a5c6f516e9dceb72f}{controlFunction}} \mbox{\hyperlink{structengine_1_1key_control_function_ad384759589fd83226e4dddfdc5b306c4}{controlCallback}};}
+\DoxyCodeLine{36         vector <int> \mbox{\hyperlink{structengine_1_1key_control_function_a806ac6cd8c69aa449a6366dcb4bbbbc2}{args}};}
+\DoxyCodeLine{37     \} \mbox{\hyperlink{structengine_1_1key_control_function}{keyControlFunction}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// Vector of keybindings within a specific control scheme}}
+\DoxyCodeLine{40     \textcolor{keyword}{typedef} vector<keyControlFunction> \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybindVector}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// Map for converting from string in xml file to Key enum in SFML}}
+\DoxyCodeLine{43     \textcolor{keyword}{extern} unordered\_map<string, sf::Keyboard::Key> \mbox{\hyperlink{namespaceengine_a4b7fc4dd478210356cac9326f8253768}{convertToKey}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// Map of control functions (for importing from xml)}}
+\DoxyCodeLine{46     \textcolor{keyword}{extern} unordered\_map<string, controlFunction> \mbox{\hyperlink{namespaceengine_a705f66087b89d5417452a1de62a7958b}{controlFunctionMap}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Pointer to vector holding current keybindings (aka a control scheme)}}
+\DoxyCodeLine{49     \textcolor{keyword}{extern} \mbox{\hyperlink{namespaceengine_a9fe0db94cf89af7992e580d3b251eef7}{keybindVector}}* \mbox{\hyperlink{namespaceengine_a06f420c360911b1625d8b010b831ae33}{currentKeybindVector}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{// Map of all vectors of control schemes}}
+\DoxyCodeLine{52     \textcolor{keyword}{extern} unordered\_map<string, keybindVector> \mbox{\hyperlink{namespaceengine_a9faab142047689da972298261d50c0f7}{controlSchemeMap}};}
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{void controlInput(sf::View* gameCamera);}}
+\DoxyCodeLine{59 \textcolor{comment}{void noControl(sf::View* gameCamera);}}
+\DoxyCodeLine{60 \textcolor{comment}{void flyingCameraControl(sf::View* gameCamera);}}
+\DoxyCodeLine{61 \textcolor{comment}{void playerCameraControl(sf::View* gameCamera);}}
+\DoxyCodeLine{62 \textcolor{comment}{*/}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keywordtype}{void} \mbox{\hyperlink{controls_8h_a72775cd448ae8d86ccb72a70638d9455}{moveCamera}}(sf::Window* gameWindow, sf::View* gameCamera, vector<int> args);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keywordtype}{void} \mbox{\hyperlink{controls_8h_a18dacbc08f6d3cdff2f3ea87eea200f4}{resolveKeyControls}}(sf::Window* gameWindow, sf::View* gameCamera);}
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} \mbox{\hyperlink{controls_8h_a303e7e82db9e1c850c5cfaebc1a7f2c6}{setControlScheme}}(\textcolor{keywordtype}{string} controlSchemeName);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{comment}{//void speedCeil(float bump);}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} \mbox{\hyperlink{controls_8h_ade2ac8db32081bbf24ad4ec0b505910e}{initControls}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !\_CONTROLS\_H}}
+
+\end{DoxyCode}

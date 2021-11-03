@@ -1,0 +1,41 @@
+\hypertarget{animation2d_8h_source}{}\doxysection{animation2d.\+h}
+\label{animation2d_8h_source}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/behavior/animation2d.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/behavior/animation2d.h}}
+\mbox{\hyperlink{animation2d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_ANIMATION\_2D\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_ANIMATION\_2D\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{// Defines for lines of each file that coorespond to standard actions}}
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{9     \mbox{\hyperlink{animation2d_8h_a06fc87d81c62e9abb8790b6e5713c55baed7d27993ddd345e399d8c599a9151c1}{ANIM\_IDLE}},}
+\DoxyCodeLine{10     \mbox{\hyperlink{animation2d_8h_a06fc87d81c62e9abb8790b6e5713c55ba59a05fe853a7378a0a76c2cab0e20a49}{ANIM\_WALK}},}
+\DoxyCodeLine{11     \mbox{\hyperlink{animation2d_8h_a06fc87d81c62e9abb8790b6e5713c55ba9c491919d57a5d79da4fe052b5f0a5bc}{ANIM\_JUMP}},}
+\DoxyCodeLine{12     \mbox{\hyperlink{animation2d_8h_a06fc87d81c62e9abb8790b6e5713c55ba401329fbbf0167cd9cd9ba66c6e5a6cc}{ANIM\_FALL}},}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classanimation}{animation}} \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \textcolor{comment}{/* Construct with}}
+\DoxyCodeLine{19 \textcolor{comment}{    image, x,y dimensions of the frame, vector of number of frames in each row, 2d mat of times}}
+\DoxyCodeLine{20 \textcolor{comment}{    }}
+\DoxyCodeLine{21 \textcolor{comment}{    */}}
+\DoxyCodeLine{22     \mbox{\hyperlink{classanimation_adc6607968566de9d38705d2498cc89df}{animation}}(\textcolor{keywordtype}{char} imagePath[], \textcolor{keywordtype}{int} spriteDims[2], \textcolor{keywordtype}{int} framesInRow[], \textcolor{keywordtype}{int} frameTicks[][]);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{comment}{// Sets the animation sequence onto a new row of sprites and cooresponding times}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{classanimation_a2245ab84a8b54161d3c28b3b0a145f28}{setRow}}(\textcolor{keywordtype}{int} newRow);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{// Mirrors the sprite (0 is normal, right facing, 1 is mirrored)}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} \mbox{\hyperlink{classanimation_a6488b249e89a77aee14081f45cd266c1}{setMirrored}}(\textcolor{keywordtype}{bool} mirrored);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// Other stuff}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

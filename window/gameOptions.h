@@ -4,10 +4,7 @@
  *
  *	Written by: Patrick Chizek
  */
-
-#ifndef _GAMEWINDOW_H
-
-#define _GAMEWINDOW_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -23,5 +20,3 @@ void setGameOptions(sf::RenderWindow *window, sf::View *gameCamera);
 void setWindowOptions(sf::RenderWindow* window, sf::View* gameCamera, string resolution, bool fullscreen);
 
 //void updateScaleFactor(sf::RenderWindow* window);
-
-#endif

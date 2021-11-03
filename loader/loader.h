@@ -5,9 +5,7 @@
  * Written by: Patrick Chizek	https://github.com/pchizek
  * tinyxml2 by: Lee Thomason	https://github.com/leethomason 
  */
-
-#ifndef _LOADER_H
-#define _LOADER_H
+#pragma once
 
 #include <stdio.h>
 #include <iostream>
@@ -24,14 +22,12 @@ using namespace std;
 using namespace tinyxml2;
 using namespace engine;
 
-void loadAsset(XMLElement* assetElement);
-void loadObject(XMLElement* objectElement);
+void loadAsset(XMLElement* assetElement);		/*!< Load the texture asset specified in the level XML file into the map of assets. */
+void loadObject(XMLElement* objectElement);		/*!< Load the data for an object from the XML file. */
 
-void loadControlScheme();
+void loadControlScheme();						/*!< Load the control scheme from the controlSchemes XML file. */
 
-void loadAssets(XMLDocument* levelDoc);
-void loadEnvironment(XMLDocument* levelDoc);
+void loadAssets(XMLDocument* levelDoc);			/*!< Load all texture assets in the level XML document. */
+void loadEnvironment(XMLDocument* levelDoc);	/*!< Load all objects in the level XML document. */
 
-void loadLevel(const char filename[]);
-
-#endif
+void loadLevel(const char filename[]);			/*!< Load the entire level file specified. */

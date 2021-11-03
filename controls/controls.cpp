@@ -10,6 +10,7 @@
 #include <SFML/Window.hpp>
 #include <controls.h>
 #include <string>
+#include <objManager2d.h>
 
 using namespace sf;
 using namespace std;
@@ -232,29 +233,3 @@ void initControls() {
 
 #pragma endregion
 }
-
-
-/*
-void setControlMode(engine::controlMode mode) {
-
-	// set callback to whichever control mode is correct, that way
-	// it's only evaluated once
-	if (mode == engine::controlMode::none) {
-		engine::controlCallback = &noControl;
-	}
-	else if (mode == engine::controlMode::flyingCamera) {
-		engine::controlCallback = &flyingCameraControl;
-	}
-	else if (mode == engine::controlMode::playerCamera) {
-		engine::controlCallback = &playerCameraControl;
-	}
-	else {
-		exception("Invalid Camera Mode");
-	}
-
-}
-
-void speedCeil(float bump) {
-	bump *= 12;
-}
-*/

@@ -1,0 +1,79 @@
+\hypertarget{xml_tools_8cpp}{}\doxysection{C\+:/\+Users/patri/\+Documents/\+Programming/c++/game/buddy\+Engine/loader/xml\+Tools.cpp File Reference}
+\label{xml_tools_8cpp}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/xmlTools.cpp@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/xmlTools.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}tinyxml2.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xml_tools_8cpp_aea693c757dd4633eae56f41137ed51f7}{ASSET\+\_\+\+PATH}}~\char`\"{}resources\textbackslash{}\textbackslash{}textures\textbackslash{}\textbackslash{}\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_a11023ebaba3ed689eb2c3656d89e8b3f}{parse}} (const char $\ast$input\+Char, int $\ast$output\+Int)
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_af362698b054f0987168753dfa425f78e}{parse}} (const char $\ast$input\+Char, int output\+Arr\mbox{[}$\,$\mbox{]}, int output\+Arr\+Size)
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_af054aa0770c79e09aeaec6c2f57106d4}{parse}} (const char $\ast$input\+Char, float output\+Arr\mbox{[}$\,$\mbox{]}, int output\+Arr\+Size)
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_a4421322361b70642c9aea14106d1de43}{parse}} (string input\+String, vector$<$ int $>$ \&output\+Vector)
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_a99b9e43ebf60a687a184bfb58c89f05f}{parse}} (const char $\ast$input\+Char, array$<$ int, 3 $>$ \&output\+Std\+Arr)
+\item 
+void \mbox{\hyperlink{xml_tools_8cpp_a2239d435e815102a2874439324aa8131}{parse}} (const char $\ast$input\+Char, array$<$ int, 5 $>$ \&output\+Std\+Arr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{xml_tools_8cpp_aea693c757dd4633eae56f41137ed51f7}\label{xml_tools_8cpp_aea693c757dd4633eae56f41137ed51f7}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!ASSET\_PATH@{ASSET\_PATH}}
+\index{ASSET\_PATH@{ASSET\_PATH}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{ASSET\_PATH}{ASSET\_PATH}}
+{\footnotesize\ttfamily \#define ASSET\+\_\+\+PATH~\char`\"{}resources\textbackslash{}\textbackslash{}textures\textbackslash{}\textbackslash{}\char`\"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{xml_tools_8cpp_a99b9e43ebf60a687a184bfb58c89f05f}\label{xml_tools_8cpp_a99b9e43ebf60a687a184bfb58c89f05f}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input\+Char,  }\item[{array$<$ int, 3 $>$ \&}]{output\+Std\+Arr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{xml_tools_8cpp_a2239d435e815102a2874439324aa8131}\label{xml_tools_8cpp_a2239d435e815102a2874439324aa8131}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input\+Char,  }\item[{array$<$ int, 5 $>$ \&}]{output\+Std\+Arr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{xml_tools_8cpp_af054aa0770c79e09aeaec6c2f57106d4}\label{xml_tools_8cpp_af054aa0770c79e09aeaec6c2f57106d4}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input\+Char,  }\item[{float}]{output\+Arr\mbox{[}$\,$\mbox{]},  }\item[{int}]{output\+Arr\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{xml_tools_8cpp_a11023ebaba3ed689eb2c3656d89e8b3f}\label{xml_tools_8cpp_a11023ebaba3ed689eb2c3656d89e8b3f}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input\+Char,  }\item[{int $\ast$}]{output\+Int }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{xml_tools_8cpp_af362698b054f0987168753dfa425f78e}\label{xml_tools_8cpp_af362698b054f0987168753dfa425f78e}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input\+Char,  }\item[{int}]{output\+Arr\mbox{[}$\,$\mbox{]},  }\item[{int}]{output\+Arr\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{xml_tools_8cpp_a4421322361b70642c9aea14106d1de43}\label{xml_tools_8cpp_a4421322361b70642c9aea14106d1de43}} 
+\index{xmlTools.cpp@{xmlTools.cpp}!parse@{parse}}
+\index{parse@{parse}!xmlTools.cpp@{xmlTools.cpp}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void parse (\begin{DoxyParamCaption}\item[{string}]{input\+String,  }\item[{vector$<$ int $>$ \&}]{output\+Vector }\end{DoxyParamCaption})}
+

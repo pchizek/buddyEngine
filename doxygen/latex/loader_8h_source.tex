@@ -1,0 +1,43 @@
+\hypertarget{loader_8h_source}{}\doxysection{loader.\+h}
+\label{loader_8h_source}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/loader.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/loader/loader.h}}
+\mbox{\hyperlink{loader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Loader.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ * For loading level data from xml files using the tinyxml2 library}}
+\DoxyCodeLine{4 \textcolor{comment}{ * }}
+\DoxyCodeLine{5 \textcolor{comment}{ * Written by: Patrick Chizek   https://github.com/pchizek}}
+\DoxyCodeLine{6 \textcolor{comment}{ * tinyxml2 by: Lee Thomason    https://github.com/leethomason }}
+\DoxyCodeLine{7 \textcolor{comment}{ */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef \_LOADER\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define \_LOADER\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}tinyxml2.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xml_tools_8h}{xmlTools.h}}>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{obj_manager2d_8h}{objManager2d.h}}>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{24 \textcolor{keyword}{using namespace }tinyxml2;}
+\DoxyCodeLine{25 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceengine}{engine}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a668dfad1d3c3ce7d73af5b95ca6ed5af}{loadAsset}}(XMLElement* assetElement);}
+\DoxyCodeLine{28 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a268092b6542134da0767e7507e81878e}{loadObject}}(XMLElement* objectElement);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a47d0b2e03a59109b5854de109718b6ec}{loadControlScheme}}();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a4c1d33a78fa8f864bbc4aca01ab57bc4}{loadAssets}}(XMLDocument* levelDoc);}
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a35d09ae5f796e2a0adeb9458f7bdec95}{loadEnvironment}}(XMLDocument* levelDoc);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keywordtype}{void} \mbox{\hyperlink{loader_8h_a073b3ac3289a5fb7126224a535efc021}{loadLevel}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} filename[]);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

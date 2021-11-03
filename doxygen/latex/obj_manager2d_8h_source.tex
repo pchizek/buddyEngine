@@ -1,0 +1,118 @@
+\hypertarget{obj_manager2d_8h_source}{}\doxysection{obj\+Manager2d.\+h}
+\label{obj_manager2d_8h_source}\index{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/managers/objManager2d.h@{C:/Users/patri/Documents/Programming/c++/game/buddyEngine/managers/objManager2d.h}}
+\mbox{\hyperlink{obj_manager2d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * objectManager.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ * 3D Object Manager}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Written by: Patrick Chizek}}
+\DoxyCodeLine{6 \textcolor{comment}{ * https://github.com/pchizek}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_OBJECTMANAGER\_2D\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define \_OBJECTMANAGER\_2D\_H}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <SFML/Window.hpp>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <SFML/Audio.hpp>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{xml_tools_8h}{xmlTools.h}}>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <tinyxml2.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define BLOCK\_SIZE 32}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define MAX\_LAYERS 5}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{26 \textcolor{keyword}{using namespace }tinyxml2;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* Get access to window */}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceengine}{engine}} \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{/* A graphical asset */}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} importTexture(\textcolor{keywordtype}{string} textureFile, \textcolor{keywordtype}{string} textureKey, sf::Vector2f scaleFactor);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{40         sf::Texture assetTexture;}
+\DoxyCodeLine{41         sf::Vector2f assetScaleFactor;}
+\DoxyCodeLine{42     \} textureInfo;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{/* Structs for script specific info */}}
+\DoxyCodeLine{45     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \textcolor{keywordtype}{bool} active;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         uint16\_t nodeCounter;}
+\DoxyCodeLine{50         uint8\_t numNodes, currentNode;}
+\DoxyCodeLine{51         vector<array<int, 3>> motionNodes;}
+\DoxyCodeLine{52         \textcolor{keywordtype}{float} scriptOffset[2];}
+\DoxyCodeLine{53         \textcolor{keywordtype}{int} dx, dy;}
+\DoxyCodeLine{54         \textcolor{keywordtype}{float} dt;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \} motionInfoCache;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordtype}{bool} active;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{comment}{// Current frame counter}}
+\DoxyCodeLine{63         uint16\_t frameCounter;}
+\DoxyCodeLine{64         \textcolor{comment}{// Frames }}
+\DoxyCodeLine{65         uint8\_t numFrames, currentFrame;}
+\DoxyCodeLine{66         vector<array<int,5>> animFrames;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \} animInfoCache;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{77     \textcolor{keyword}{class }object \{}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{public}:}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         object( \textcolor{keywordtype}{int} worldLoc[2],}
+\DoxyCodeLine{82                 uint8\_t objLayer,}
+\DoxyCodeLine{83                 textureInfo* newTexture,}
+\DoxyCodeLine{84                 sf::IntRect* spriteRect);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{keywordtype}{void} setTexture(sf::Texture* newTexture);}
+\DoxyCodeLine{87         }
+\DoxyCodeLine{88         \textcolor{keywordtype}{void} setScript(XMLElement* scriptElement);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \textcolor{keywordtype}{void} draw(sf::RenderWindow* \mbox{\hyperlink{game_window_8h_ae90e155ced28d8d3e69df6bad6b6d893}{window}});}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         \textcolor{keywordtype}{void} setObjectScaleFactor();}
+\DoxyCodeLine{93         \textcolor{keywordtype}{void} setLocalScaleFactor(sf::Vector2f* scaleFactor);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \textcolor{keywordtype}{int} worldCoords[2];}
+\DoxyCodeLine{96         uint8\_t layer\{ 0 \};}
+\DoxyCodeLine{97         }
+\DoxyCodeLine{98         motionInfoCache motionInfo;}
+\DoxyCodeLine{99         animInfoCache animInfo;}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         \textcolor{comment}{// Pointer to next object in linked list}}
+\DoxyCodeLine{102         \textcolor{keywordtype}{object}* nextObject\{ NULL \};}
+\DoxyCodeLine{103         \textcolor{keywordtype}{object}* prevObject\{ NULL \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         sf::Sprite objectSprite;}
+\DoxyCodeLine{106         textureInfo* objectTextureInfo;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keyword}{private}:}
+\DoxyCodeLine{109         sf::Vector2f localScaleFactor;}
+\DoxyCodeLine{110         sf::Vector2f objectScaleFactor;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{comment}{/* Data structure for all objects in the level */}}
+\DoxyCodeLine{117     \textcolor{keyword}{extern} \textcolor{keywordtype}{object}* \mbox{\hyperlink{namespaceengine_a89144cf95e0807984a6428a80c1710a3}{firstObject}};  }
+\DoxyCodeLine{118     \textcolor{keyword}{extern} \textcolor{keywordtype}{object}* \mbox{\hyperlink{namespaceengine_aa7a89231aa039a6be6dfa2de8928f3a0}{lastObject}};  }
+\DoxyCodeLine{119     \textcolor{keyword}{extern} unordered\_map<string, textureInfo> \mbox{\hyperlink{namespaceengine_a649717fcacdf5e679af6ffa3d01e4d92}{textureInfoMap}}; }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} setGlobalScaleFactor(sf::View* gameCamera, \textcolor{keywordtype}{float} fauxWidth, \textcolor{keywordtype}{float} fauxHeight, \textcolor{keywordtype}{bool} stayPosition);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     \textcolor{keywordtype}{void} renderAll(sf::RenderWindow* \mbox{\hyperlink{game_window_8h_ae90e155ced28d8d3e69df6bad6b6d893}{window}}); }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
