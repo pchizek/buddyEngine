@@ -17,12 +17,14 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#include <xmlTools.h>
+
 #define ASSET_PATH "resources\\textures\\"
 
 using namespace std;
 using namespace tinyxml2;
 
-#pragma region parsing
+//#pragma region parsing
 /* Parses a string to extract various integer and array values
  *
  * Arguments:
@@ -116,6 +118,8 @@ void parse(const char* inputChar, float outputArr[], int outputArrSize) {
 
 }
 
+#pragma region string_inputs
+
 void parse(string inputString, vector<int>& outputVector) {
 
 	// Get size of vector
@@ -152,6 +156,47 @@ void parse(string inputString, vector<int>& outputVector) {
 
 }
 
+elementType getElementType(string inputString) {
+
+	// Evaluate string
+	
+	// Check if string is integer(s)
+	if (inputString.find("[") != string::npos) {
+
+		if (inputString.find(",") != string::npos) {
+			return arg_t_int_v;
+		}
+		else {
+			return arg_t_int;
+		}
+
+	}
+
+	// Check if string is float(s)
+	else if (inputString.find("{") != string::npos) {
+		
+		if (inputString.find(",") != string::npos) {
+			return arg_t_float_v;
+		}
+		else {
+			return arg_t_float;
+		}
+
+	}
+
+	// Check if string is meant to be text
+	else if (inputString.find('"') != string::npos) {
+		return arg_t_string;
+	}
+
+	else {
+		exception("Error: Element of variable type defined incorrectly");
+	}
+
+}
+
+#pragma endregion
+
 void parse(const char* inputChar, array<int, 3> &outputStdArr) {
 
 	int interArr[3];
@@ -173,4 +218,4 @@ void parse(const char* inputChar, array<int, 5> &outputStdArr) {
 
 }
 
-#pragma endregion
+//#pragma endregion

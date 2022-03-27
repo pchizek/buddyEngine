@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
+
+
+<schemes>
+
 <scheme name="flyingCameraKeyboard">
    
-  <mouseEnable>true</mouseEnable>
+  <mouseEnable>false</mouseEnable>
   
   <keybind>
     <key>w</key>
@@ -33,5 +37,30 @@
     <function>closeGame</function>
     <args>[0,0]</args>
   </keybind>
-
+  
 </scheme>
+
+<scheme name="menu">
+
+  <mouseEnable>false</mouseEnable>
+
+  <keybind>
+    
+    <key>Escape</key>
+    
+    <function>
+      <name>switchUiSet</name>
+      <args>gameplay</args>
+    </function>
+
+    <function>
+      <name>setControlScheme</name>
+      <args>flyingCameraKeyboard</args>
+    </function>
+    
+  </keybind>
+  
+</scheme>
+
+  
+</schemes>

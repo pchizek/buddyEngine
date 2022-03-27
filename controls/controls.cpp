@@ -21,136 +21,58 @@ using namespace std;
 int playerState[4] = { 0,0,0,0 };
 int cameraBump[2] = { 0,0 };
 
-/*
-void speedCeil(int dir) {
-
-	if (dir) {
-		playerState[2] += (dir * ACCEL);
-
-		if (playerState[2] > MAXSPEED) {
-			playerState[2] = MAXSPEED;
-		}
-
-		else if (playerState[2] < (-MAXSPEED)) {
-			playerState[2] = -MAXSPEED;
-		}
-
-	}
-
-	else {
-
-		if (playerState[2] > DECEL_STEP) {
-			playerState[2] = DECEL_STEP;
-		}
-
-		else if (playerState[2] < -DECEL_STEP) {
-			playerState[2] = -DECEL_STEP;
-		}
-
-		else {
-			playerState[2] = 0;
-		}
-
-	}
-
-}
-*/
-
 namespace engine {
 
 	unordered_map<string, Keyboard::Key> convertToKey;
+
 	unordered_map<string, controlFunction> controlFunctionMap;
 	keybindVector* currentKeybindVector;
-	unordered_map<string, keybindVector>controlSchemeMap;
+	unordered_map<string, keybindVector> controlSchemeMap;
+
+	uiSetVector* currentUiSetVector;
+	unordered_map <string, uiSetVector> uiSetMap;
 }
 
 
-#pragma region control_functions
+/* Control functions. */
+#pragma region program_functions
+engine::controlFunction moveCamera(Window* gameWindow, View* gameCamera, vector<int>* args) {
 
-void moveCamera(Window* gameWindow, View* gameCamera, vector<int> args) {
-
-	if (args.at(0)) {
-		gameCamera->move(0, args.at(1));
+	if (args->at(0)) {
+		gameCamera->move(0, args->at(1));
 	}
 	else {
-		gameCamera->move(args.at(1), 0);
+		gameCamera->move(args->at(1), 0);
 	}
 
 }
 
-void closeGame(Window* gameWindow, View* gameCamera, vector<int> args) {
+engine::controlFunction closeGame(Window* gameWindow, View* gameCamera, vector<int>* args) {
 	gameWindow->close();
 }
 
-#pragma endregion 
+#pragma endregion
 
-/*
-void controlInput(sf::View* gameCamera, ) {
+#pragma region keyboard_gamepad_controls
 
-	// Check location of mouse
-	Vector2i currentMouseLocation = Mouse::getPosition();
-	if (currentMouseLocation != engine::mouseLocation) {
-		currentMouseLocation = engine::mouseLocation;
-		engine::mouseEnabled = true;
-	}
+engine::controlFunction setControlScheme(sf::Window* gameWindow, sf::View* gameCamera, vector<int>* args) {
 
-	// Check state of mouse button
-	if (Mouse::isButtonPressed(Mouse::Left) {
-		// Handle mouse
-	}
-
-	engine::controlCallback(gameCamera);
+	string controlSchemeName = *(string*)args;
+	engine::currentKeybindVector = &engine::controlSchemeMap.at(controlSchemeName);
 }
 
+#pragma endregion
 
-void controlInput(sf::View* gameCamera) {
+#pragma region ui_controls
 
-	// Check location of mouse
-	Vector2i currentMouseLocation = Mouse::getPosition();
-	if (currentMouseLocation != engine::mouseLocation) {
-		currentMouseLocation = engine::mouseLocation;
-		engine::mouseEnabled = true;
-	}
+engine::controlFunction switchUiSet(sf::Window* gameWindow, sf::View* gameCamera, vector<int>* args) {
 
-	// Check state of mouse button
-	if (Mouse::isButtonPressed(Mouse::Left) {
-		// Handle mouse
-	}
-
-	engine::controlCallback(gameCamera);
-}
-
-void noControl(View* gameCamera) {
-	int x = 1;
-}
-
-void flyingCameraControl(View* gameCamera) {
-
-	/* TODO: make camera center around a player *
-	float bumpX = (
-		(Keyboard::isKeyPressed(Keyboard::D))
-		- (Keyboard::isKeyPressed(Keyboard::A)));
-
-	float bumpY = (
-		(Keyboard::isKeyPressed(Keyboard::S))
-		- (Keyboard::isKeyPressed(Keyboard::W)));
-
-	// 
-	speedCeil(bumpX);
-	speedCeil(bumpY);
-
-	gameCamera->move(bumpX, bumpY);
+	string uiSetName = *(string*)args;
+	engine::currentUiSetVector = &engine::uiSetMap.at(uiSetName);
 
 }
 
-void playerCameraControl(View* gameCamera) {
-	int x = 1;
-}
-*/
-
-void setControlScheme(string controlSchemeName) {
-	engine::currentKeybindVector = &engine::controlSchemeMap.at(controlSchemeName); //What's causing the problem? prolly not
-}
+#pragma endregion
 
 void resolveKeyControls(Window* gameWindow, View* gameCamera) {
 
@@ -163,6 +85,29 @@ void resolveKeyControls(Window* gameWindow, View* gameCamera) {
 	}
 
 }
+
+#pragma region ui
+
+void drawUi(sf::RenderWindow* window) {
+
+	// Which ui is selected
+
+
+	// draw elements, first background, then foreground
+	for (int i = 1; i > -1; i--) {
+
+		if ()
+
+
+
+	}
+
+	window->draw();
+
+
+}
+
+#pragma endregion
 
 void initControls() {
 

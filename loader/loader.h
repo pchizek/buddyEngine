@@ -27,7 +27,10 @@ void loadObject(XMLElement* objectElement);		/*!< Load the data for an object fr
 
 void loadControlScheme();						/*!< Load the control scheme from the controlSchemes XML file. */
 
-void loadAssets(XMLDocument* levelDoc);			/*!< Load all texture assets in the level XML document. */
+void loadUiSets(XMLDocument* uiSetDoc);
+void loadUi();
+
+void loadAssets(XMLDocument* levelDoc, const char firstChild[]);			/*!< Load all texture assets in the level XML document. */
 void loadEnvironment(XMLDocument* levelDoc);	/*!< Load all objects in the level XML document. */
 
 void loadLevel(const char filename[]);			/*!< Load the entire level file specified. */

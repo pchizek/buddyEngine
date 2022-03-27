@@ -225,66 +225,6 @@ void loadObject(XMLElement* objectElement) {
 }
 #pragma endregion
 
-#pragma region load_controls_and_ui
-
-void loadControlScheme() {
-	
-	XMLDocument controlSchemesDoc;
-    XMLError loadError = controlSchemesDoc.LoadFile("resources/ui/controlSchemes.xml");
-
-	// Throw error
-	if (loadError) {
-		exception("Controls: Cannot open document");
-	}
-
-	XMLElement* schemeElement = controlSchemesDoc.FirstChildElement("scheme");
-	XMLElement* schemeChildElement;
-
-	while (schemeElement) {
-
-		const char* schemeName = schemeElement->Attribute("name");
-		string schemeKey;
-		if (schemeName) {
-			schemeKey = string(schemeName);
-		}
-		else { exception("Error reading control scheme"); }
-
-		// Get keybinds
-		schemeChildElement = schemeElement->FirstChildElement("keybind");
-
-		keybindVector thisKeybindVector;
-
-		while (schemeChildElement) {
-
-			keyControlFunction thisKeyFunction;
-
-			// Get key on keyboard
-			thisKeyFunction.key = convertToKey.at(string(schemeChildElement->FirstChildElement("key")->GetText()));
-
-			// Get function callback by name
-			string functionName = string(schemeChildElement->FirstChildElement("function")->GetText());
-			thisKeyFunction.controlCallback = engine::controlFunctionMap.at(functionName);
-
-			// Get args
-			parse(string(schemeChildElement->FirstChildElement("args")->GetText()), thisKeyFunction.args);
-			
-			// Put this key bind in the vector
-			thisKeybindVector.push_back(thisKeyFunction);
-
-			// Next keybind in scheme
-			schemeChildElement = schemeChildElement->NextSiblingElement("keybind");
-		}
-
-		// Put this keybind vector into map of all keybind schemes
-		controlSchemeMap.emplace(schemeKey, thisKeybindVector);
-
-		// Next scheme
-		schemeElement = schemeElement->NextSiblingElement("scheme");
-	}
-}
-
-#pragma endregion
-
 /* Loader for assets section, environment */
 #pragma region load_section
 
@@ -296,11 +236,11 @@ void loadControlScheme() {
  * Returns: 0 on success, error codes
  */
 
-void loadAssets(XMLDocument* levelDoc) {
+void loadAssets(XMLDocument* levelDoc, const char firstChild[]) {
 
 	/* Get first asset in document */
 	XMLElement* asset =
-		levelDoc->FirstChildElement("level")->
+		levelDoc->FirstChildElement(firstChild)->
 		FirstChildElement("assets")->
 		FirstChildElement("asset");
 
@@ -346,10 +286,185 @@ void loadLevel(const char filename[]) {
 
 
 	// Load Assets
-	loadAssets(&levelDoc);
+	loadAssets(&levelDoc,"level");
 
 	// Load Objects
 	loadEnvironment(&levelDoc);
+
+}
+#pragma endregion
+
+/* Loader for control schemes */
+#pragma region load_controls
+
+void loadFunctionArgs(XMLElement* argsElement) {
+
+}
+
+void loadFunctions(XMLElement* functionElement) {
+
+	while (functionElement) {
+
+		callbackFunctionNode thisFunctionNode;
+
+		string functionKey = string(functionElement->FirstChildElement("name")->GetText());
+
+		vector<int> functionArgs;
+		parse(string(functionElement->FirstChildElement("args")->GetText()),functionArgs);
+
+		functionElement = functionElement->NextSiblingElement("function");
+
+	}
+
+}
+
+
+void loadControlScheme() {
+
+	XMLDocument controlSchemesDoc;
+	XMLError loadError = controlSchemesDoc.LoadFile("resources/ui/controlSchemes.xml");
+
+	// Throw error
+	if (loadError) {
+		exception("Controls: Cannot open document");
+	}
+
+	// First pass: get all scheme names, and emplace them
+
+	// Second pass: fill in details of all schemes
+	XMLElement* schemeElement = controlSchemesDoc.FirstChildElement("scheme");
+	XMLElement* schemeChildElement;
+
+	while (schemeElement) {
+
+		const char* schemeName = schemeElement->Attribute("name");
+		string schemeKey;
+		if (schemeName) {
+			schemeKey = string(schemeName);
+		}
+		else { exception("Error reading control scheme"); }
+
+		// Get keybinds
+		schemeChildElement = schemeElement->FirstChildElement("keybind");
+
+		keybindVector thisKeybindVector;
+
+		while (schemeChildElement) {
+
+			keyControl thisKeyFunction;
+
+			// Get key on keyboard
+			thisKeyFunction.key = convertToKey.at(string(schemeChildElement->FirstChildElement("key")->GetText()));
+
+			// Get function(s)
+			//loadFunctions()
+
+			XMLElement* keyFunctionElement;
+			keyFunctionElement = schemeChildElement->FirstChildElement("function");
+			while (keyFunctionElement) {
+
+				string key
+
+				thisKeyFunction.callbackVector.push_back(keyFunctionElement->GetText());
+				keyFunctionElement = keyFunctionElement->NextSiblingElement("function");
+
+			}
+
+		
+
+			// Get args
+			parse(string(schemeChildElement->FirstChildElement("args")->GetText()), thisKeyFunction.args);
+
+			// Put this key bind in the vector
+			thisKeybindVector.push_back(thisKeyFunction);
+
+			// Next keybind in scheme
+			schemeChildElement = schemeChildElement->NextSiblingElement("keybind");
+		}
+
+		// Put this keybind vector into map of all keybind schemes
+		controlSchemeMap.emplace(schemeKey, thisKeybindVector);
+
+		// Next scheme
+		schemeElement = schemeElement->NextSiblingElement("scheme");
+	}
+}
+#pragma endregion
+
+/* Loader for UI */
+#pragma region load_ui
+
+void loadMouseButton(XMLElement* mouseButtonElement) {
+
+}
+
+void loadBackground(XMLElement* backgroundElement) {
+
+	uiElement backgroundUiElement;
+	backgroundUiElement.isBackground = true;
+
+	// Get texture
+	string textureKey = string(backgroundElement->FirstChildElement("texture")->GetText());
+	backgroundUiElement.elementSprite.setTexture(textureInfoMap.at(textureKey).assetTexture, true);
+
+	// Copy and emplace in ui map
+	
+
+
+}
+
+void loadUiSets(XMLDocument* uiSetDoc){
+
+	XMLElement* uiSetElement =
+		uiSetDoc->FirstChildElement("ui")->
+		FirstChildElement("uiset");
+
+	while (uiSetElement) {
+
+		XMLElement* uiElement;
+
+		// Set name as key in uiset map
+		string uiSetKey = string(uiSetElement->Attribute("name"));
+
+		// Check for any backgrounds in uiset
+		uiElement = uiSetElement->FirstChildElement("background");
+		while (uiElement) {
+
+			loadBackground(uiElement);
+
+			uiElement = uiElement->NextSiblingElement("background");
+		}
+
+		// Check for mouse buttons
+		uiElement = uiSetElement->FirstChildElement("mousebutton");
+		while (uiElement) {
+
+			loadMouseButton(uiElement);
+
+			uiElement = uiElement->NextSiblingElement("mousebutton");
+		}
+
+		uiSetElement = uiSetElement->NextSiblingElement("uiSet");
+	}
+
+}
+
+void loadUi() {
+
+	XMLDocument uiDoc;
+	XMLError loadError = uiDoc.LoadFile("resources/ui/ui.xml");
+
+	// Throw error
+	if (loadError) {
+		exception("Controls: Cannot open document");
+	}
+
+	// Load Assets
+	loadAssets(&uiDoc, "ui");
+
+	// Load uisets
+	loadUiSets(&uiDoc);
+
 
 }
 #pragma endregion
@@ -358,12 +473,14 @@ void loadLevel(const char filename[]) {
 #pragma region load_game
 void loadGame() {
 
-	// Load control schemas
-
 	// Load ui
+	loadUi();
+
+	// Load control schemes
+	loadControlScheme();
 
 	// Load level (TODO: load start screen)
-
+	loadLevel("resources/levels/testLevel.xml");
 }
 
 

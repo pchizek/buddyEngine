@@ -53,7 +53,7 @@ int main(){
 	/* TODO: Package game assets into some sort of library */
 
 	/* Load File */
-	loadLevel("resources/levels/testLevel.xml");
+	//loadLevel("resources/levels/testLevel.xml");
 	extern int cameraCoords[2];
 
 

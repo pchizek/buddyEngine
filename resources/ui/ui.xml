@@ -10,26 +10,70 @@
     </asset>
 
     <!-- Exit -->
-    <asset alias="testButton">
-      <file>testButton.png</file>
+    <asset alias="menuButton">
+      <file>testMenuButton.png</file>
     </asset>
-  
+
+    <!-- Background -->
+    <asset alias="menuBackground">
+      <file>testMenuBackground.png</file>
+    </asset>
   </assets>
 
   <uiset name="gameplay">
     
     <mousebutton>
-      <rect>[0,0,64,16]</rect>
+      <origin>[0,0]</origin>
       <texture>testButton</texture>
+      
+      <function>
+        <name>switchUiSet</name>
+        <args>[1]</args>
+      </function>
+      
+      <function>
+        <name>setControlScheme</name>
+        <args>[1]</args>
+      </function>
+      
     </mousebutton>
     
   </uiset>
 
   <uiset name="gameMenu">
+
+    <background>
+      <origin>[80,10]</origin>
+      <texture>menuBackground</texture>
+    </background>
+
+    <mousebutton>
+      <origin>[128,34]</origin>
+      <texture>testButton</texture>
+      <text>"Resume"</text>
+      
+      <function>
+        <name>switchUiSet</name>
+        <args>[0]</args>
+      </function>
+
+      <function>
+        <name>setControlScheme</name>
+        <args>[0]</args>
+      </function>
+      
+    </mousebutton>
     
     <mousebutton>
-      <rect>[0,0,64,16]</rect>
+      <origin>[128,146]</origin>
       <texture>testButton</texture>
+      <text>"Exit"</text>
+
+      <function>
+        <name>closeGame</name>
+        <args>[0]</args>
+      </function>
+      
     </mousebutton>
     
   </uiset>
