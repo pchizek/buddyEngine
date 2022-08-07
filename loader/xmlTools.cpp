@@ -35,7 +35,7 @@ using namespace tinyxml2;
  * num: a single integer
  *
  *
- * Returns: 0 on success, -1 on error
+ * Returns: 0 on success, -1 on error (TODO: No it's a void(), silly)
  */
 
 void parse(const char* inputChar, int* outputInt) {

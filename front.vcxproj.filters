@@ -54,11 +54,11 @@
     <ClCompile Include="loader\xmlTools.cpp">
       <Filter>Source Files\data</Filter>
     </ClCompile>
-    <ClCompile Include="window\gameOptions.cpp">
-      <Filter>Source Files\window</Filter>
-    </ClCompile>
     <ClCompile Include="controls\controls.cpp">
       <Filter>Source Files\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="window\gameOptions.cpp">
+      <Filter>Source Files\window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
